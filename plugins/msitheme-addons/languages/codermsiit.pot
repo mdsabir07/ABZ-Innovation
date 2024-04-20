@@ -1,0 +1,621 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Codermsi Essential Addons\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 18:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.5; wp-5.8.3\n"
+"X-Domain: codermsiit"
+
+#. 1: Plugin name 2: Elementor
+#: codermsi-addons.php:132
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#. 1: Plugin name 2: Elementor 3: Required Elementor version
+#. 1: Plugin name 2: PHP 3: Required PHP version
+#: codermsi-addons.php:155 codermsi-addons.php:179
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: widgets/form-gmap.php:171
+msgid "[shortcode]"
+msgstr ""
+
+#: widgets/about-us.php:118
+msgid "About image"
+msgstr ""
+
+#: widgets/blogs-featured.php:1134
+msgid "About me"
+msgstr ""
+
+#: widgets/about-us.php:39
+msgid "About us"
+msgstr ""
+
+#: widgets/instagram.php:151
+msgid "Add images"
+msgstr ""
+
+#: widgets/blogs-featured.php:1195
+msgid "Ads"
+msgstr ""
+
+#: widgets/blogs-featured.php:503
+msgid "Author facebook link"
+msgstr ""
+
+#: widgets/blogs-featured.php:527
+msgid "Author instagram link"
+msgstr ""
+
+#: widgets/blogs-featured.php:539
+msgid "Author linkedin link"
+msgstr ""
+
+#: widgets/blogs-featured.php:515
+msgid "Author twitter link"
+msgstr ""
+
+#: widgets/about-us.php:137
+msgid "Blockquote"
+msgstr ""
+
+#: widgets/about-us.php:145
+msgid "Blockquote Name"
+msgstr ""
+
+#: widgets/about-us.php:190
+msgid "Blogger name"
+msgstr ""
+
+#: widgets/blogs.php:52
+msgid "Blogs"
+msgstr ""
+
+#: widgets/blogs-cover-post.php:39
+msgid "Blogs cover post"
+msgstr ""
+
+#: widgets/blogs-featured.php:52
+msgid "Blogs Featured Listview"
+msgstr ""
+
+#: widgets/blogs-video.php:52
+msgid "Blogs Video"
+msgstr ""
+
+#: widgets/breadcrumbs.php:39
+msgid "Breadcrumbs"
+msgstr ""
+
+#: widgets/breaking-posts.php:39
+msgid "Breaking post"
+msgstr ""
+
+#: widgets/blogs-featured.php:329 widgets/hero-slider.php:217
+msgid "Button text"
+msgstr ""
+
+#: widgets/blogs.php:415 widgets/hero-slider.php:347
+msgid "By: "
+msgstr ""
+
+#: widgets/blogs-featured.php:1221
+msgid "Categories"
+msgstr ""
+
+#: widgets/blogs-featured.php:439 widgets/blogs-featured.php:620
+msgid "Choose Image"
+msgstr ""
+
+#: widgets/blogs-featured.php:489
+msgid "Choose signature Image"
+msgstr ""
+
+#. Name of the plugin
+#: codermsi-addons.php:133 codermsi-addons.php:156 codermsi-addons.php:180
+msgid "Codermsi Essential Addons"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Codermsi Essential Addons for use in Elementor. This plugin will work only "
+"if the Elementor page builder is installed on the"
+msgstr ""
+
+#: plugin.php:144
+msgid "Codermsiit"
+msgstr ""
+
+#: widgets/form-gmap.php:39
+msgid "Contact form & Gmap"
+msgstr ""
+
+#: widgets/form-gmap.php:140
+msgid "Content"
+msgstr ""
+
+#: widgets/form-gmap.php:130
+msgid "Content title"
+msgstr ""
+
+#: widgets/about-us.php:275
+msgid "Contents Color"
+msgstr ""
+
+#: widgets/blogs-video.php:127 widgets/blogs.php:127
+msgid "Default padding (padding bottom)"
+msgstr ""
+
+#: widgets/about-us.php:154 widgets/blogs-featured.php:477
+#: widgets/instagram.php:117 widgets/newsletter.php:117
+msgid "Description"
+msgstr ""
+
+#: widgets/form-gmap.php:271 widgets/instagram.php:257
+#: widgets/newsletter.php:176
+msgid "Description Color"
+msgstr ""
+
+#: widgets/blogs-featured.php:465
+msgid "Designation"
+msgstr ""
+
+#: codermsi-addons.php:134 codermsi-addons.php:157
+msgid "Elementor"
+msgstr ""
+
+#: widgets/about-us.php:163
+msgid "Email"
+msgstr ""
+
+#: widgets/hero-slider.php:270
+msgid "Excerpt Color"
+msgstr ""
+
+#: widgets/blogs-featured.php:303 widgets/hero-slider.php:191
+msgid "Excerpt letters"
+msgstr ""
+
+#: widgets/instagram.php:131
+msgid "Fake gallery"
+msgstr ""
+
+#: plugin.php:145
+msgid "fas fa-image"
+msgstr ""
+
+#: widgets/form-gmap.php:102
+msgid "Form and Map"
+msgstr ""
+
+#: widgets/form-gmap.php:294
+msgid "Form Heading Color"
+msgstr ""
+
+#: widgets/blogs-featured.php:748 widgets/form-gmap.php:169
+#: widgets/newsletter.php:126
+msgid "Form shortcode"
+msgstr ""
+
+#: widgets/form-gmap.php:159
+msgid "Form sub title"
+msgstr ""
+
+#: widgets/form-gmap.php:317
+msgid "Form sub title Color"
+msgstr ""
+
+#: widgets/form-gmap.php:149
+msgid "Form title"
+msgstr ""
+
+#: widgets/blogs-featured.php:375 widgets/blogs-featured.php:427
+#: widgets/blogs-featured.php:568 widgets/blogs-featured.php:608
+#: widgets/blogs-featured.php:680 widgets/blogs-featured.php:708
+#: widgets/blogs-featured.php:736
+msgid "Heading"
+msgstr ""
+
+#: widgets/about-us.php:228 widgets/blogs-featured.php:837
+#: widgets/blogs-video.php:329 widgets/blogs.php:320
+#: widgets/hero-slider.php:247
+msgid "Heading Color"
+msgstr ""
+
+#: widgets/hero-slider.php:52
+msgid "Hero Slider"
+msgstr ""
+
+#: widgets/blogs-featured.php:232 widgets/blogs-featured.php:244
+#: widgets/blogs-featured.php:257 widgets/blogs-featured.php:269
+#: widgets/blogs-featured.php:281 widgets/blogs-video.php:258
+#: widgets/blogs-video.php:271 widgets/blogs-video.php:283
+#: widgets/blogs-video.php:295 widgets/blogs.php:249 widgets/blogs.php:262
+#: widgets/blogs.php:274 widgets/blogs.php:286 widgets/hero-slider.php:144
+#: widgets/hero-slider.php:157 widgets/hero-slider.php:169
+msgid "Hide"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://codermsiit.com/"
+msgstr ""
+
+#: widgets/blogs-featured.php:648
+msgid "https://domain-link.com"
+msgstr ""
+
+#: widgets/instagram.php:39
+msgid "Instagram"
+msgstr ""
+
+#: widgets/instagram.php:101
+msgid "Instagram feed gallery"
+msgstr ""
+
+#: widgets/instagram.php:139
+msgid "Instagram shortcode"
+msgstr ""
+
+#: widgets/blogs-featured.php:197 widgets/blogs-featured.php:646
+#: widgets/blogs-video.php:214 widgets/blogs.php:214
+msgid "Link"
+msgstr ""
+
+#: widgets/blogs-featured.php:185 widgets/blogs-video.php:202
+#: widgets/blogs.php:202
+msgid "Link text"
+msgstr ""
+
+#: widgets/about-us.php:358
+msgid "Mail:"
+msgstr ""
+
+#: widgets/form-gmap.php:120
+msgid "Map height"
+msgstr ""
+
+#: widgets/form-gmap.php:110
+msgid "Map URL"
+msgstr ""
+
+#: widgets/blogs-featured.php:453
+msgid "Name"
+msgstr ""
+
+#: widgets/newsletter.php:101
+msgid "Newsletter form"
+msgstr ""
+
+#: widgets/newsletter.php:39
+msgid "Newsletter Forms"
+msgstr ""
+
+#: widgets/blogs-featured.php:126 widgets/blogs-featured.php:152
+#: widgets/blogs-featured.php:177 widgets/blogs-featured.php:295
+#: widgets/blogs-featured.php:321 widgets/blogs-featured.php:348
+#: widgets/blogs-featured.php:364 widgets/blogs-featured.php:416
+#: widgets/blogs-featured.php:556 widgets/blogs-featured.php:597
+#: widgets/blogs-featured.php:669 widgets/blogs-featured.php:697
+#: widgets/blogs-featured.php:725 widgets/blogs-video.php:143
+#: widgets/blogs-video.php:169 widgets/blogs-video.php:194
+#: widgets/blogs.php:143 widgets/blogs.php:169 widgets/blogs.php:194
+#: widgets/hero-slider.php:183 widgets/hero-slider.php:209
+msgid "No"
+msgstr ""
+
+#: widgets/instagram.php:130
+msgid "Original Insta gallery"
+msgstr ""
+
+#: widgets/blogs-video.php:126 widgets/blogs.php:126
+msgid "Padding bottom 0"
+msgstr ""
+
+#: widgets/blogs-video.php:125 widgets/blogs.php:125
+msgid "Padding top 0"
+msgstr ""
+
+#: widgets/about-us.php:172
+msgid "Phone"
+msgstr ""
+
+#: widgets/about-us.php:360
+msgid "Phone:"
+msgstr ""
+
+#: codermsi-addons.php:181
+msgid "PHP"
+msgstr ""
+
+#: widgets/blogs-featured.php:387
+msgid "Placeholder text"
+msgstr ""
+
+#: widgets/blogs-featured.php:209 widgets/blogs-featured.php:580
+#: widgets/blogs.php:226 widgets/hero-slider.php:121
+msgid "Post count"
+msgstr ""
+
+#: widgets/blogs-video.php:226
+msgid "Post count for left side"
+msgstr ""
+
+#: widgets/blogs-video.php:235
+msgid "Post count for right side"
+msgstr ""
+
+#: widgets/blogs-featured.php:160 widgets/blogs-video.php:177
+#: widgets/blogs.php:177
+msgid "Post heading"
+msgstr ""
+
+#: widgets/about-us.php:298
+msgid "Quote Color"
+msgstr ""
+
+#: widgets/blogs-featured.php:1171
+msgid "Recent posts"
+msgstr ""
+
+#. Author of the plugin
+msgid "Sabirul Islam"
+msgstr ""
+
+#: widgets/form-gmap.php:133
+msgid "Say Hello!"
+msgstr ""
+
+#: widgets/blogs-featured.php:1119
+msgid "Search"
+msgstr ""
+
+#: widgets/about-us.php:109
+msgid "Section heading"
+msgstr ""
+
+#: widgets/blogs-video.php:121 widgets/blogs.php:121
+msgid "Section padding"
+msgstr ""
+
+#: widgets/blogs-featured.php:795 widgets/form-gmap.php:213
+#: widgets/instagram.php:199
+msgid "Section padding bottom"
+msgstr ""
+
+#: widgets/blogs-featured.php:769 widgets/form-gmap.php:187
+#: widgets/instagram.php:173
+msgid "Section padding top"
+msgstr ""
+
+#: widgets/about-us.php:101 widgets/blogs-featured.php:114
+#: widgets/blogs-featured.php:134 widgets/blogs-video.php:114
+#: widgets/blogs-video.php:151 widgets/blogs.php:114 widgets/blogs.php:151
+#: widgets/hero-slider.php:114
+msgid "Section title"
+msgstr ""
+
+#: widgets/blogs-featured.php:218 widgets/blogs-video.php:244
+#: widgets/blogs.php:235 widgets/hero-slider.php:130
+msgid "Select Categories"
+msgstr ""
+
+#: widgets/instagram.php:126
+msgid "Select gallery type"
+msgstr ""
+
+#: widgets/form-gmap.php:152
+msgid "Send us a Message"
+msgstr ""
+
+#: widgets/blogs-featured.php:231 widgets/blogs-featured.php:243
+#: widgets/blogs-featured.php:256 widgets/blogs-featured.php:268
+#: widgets/blogs-featured.php:280 widgets/blogs-video.php:257
+#: widgets/blogs-video.php:270 widgets/blogs-video.php:282
+#: widgets/blogs-video.php:294 widgets/blogs.php:248 widgets/blogs.php:261
+#: widgets/blogs.php:273 widgets/blogs.php:285 widgets/hero-slider.php:143
+#: widgets/hero-slider.php:156 widgets/hero-slider.php:168
+msgid "Show"
+msgstr ""
+
+#: widgets/blogs-featured.php:411
+msgid "Show about widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:592
+msgid "Show ads widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:241
+msgid "Show author"
+msgstr ""
+
+#: widgets/blogs-featured.php:316 widgets/hero-slider.php:204
+msgid "Show button"
+msgstr ""
+
+#: widgets/blogs-featured.php:254 widgets/blogs-video.php:268
+#: widgets/blogs.php:259 widgets/hero-slider.php:154
+msgid "Show categories"
+msgstr ""
+
+#: widgets/blogs-featured.php:664
+msgid "Show cats widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:229 widgets/blogs-video.php:255
+#: widgets/blogs.php:246 widgets/hero-slider.php:141
+msgid "Show date"
+msgstr ""
+
+#: widgets/blogs-featured.php:290 widgets/hero-slider.php:178
+msgid "Show excerpt"
+msgstr ""
+
+#: widgets/blogs-featured.php:266 widgets/blogs-video.php:280
+#: widgets/blogs.php:271
+msgid "Show Image"
+msgstr ""
+
+#: widgets/blogs-featured.php:147 widgets/blogs-video.php:164
+#: widgets/blogs.php:164
+msgid "Show post heading"
+msgstr ""
+
+#: widgets/blogs-featured.php:551
+msgid "Show recent post widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:359
+msgid "Show search widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:172 widgets/blogs-video.php:189
+#: widgets/blogs.php:189
+msgid "Show section link"
+msgstr ""
+
+#: widgets/blogs-featured.php:121 widgets/blogs-video.php:138
+#: widgets/blogs.php:138
+msgid "Show section title"
+msgstr ""
+
+#: widgets/blogs-featured.php:343
+msgid "Show sidebar"
+msgstr ""
+
+#: widgets/blogs-featured.php:720
+msgid "Show subscribe form widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:692
+msgid "Show tags widget"
+msgstr ""
+
+#: widgets/blogs-featured.php:278 widgets/blogs-video.php:292
+#: widgets/blogs.php:283 widgets/hero-slider.php:166
+msgid "Show title"
+msgstr ""
+
+#: widgets/about-us.php:200
+msgid "Signature"
+msgstr ""
+
+#: widgets/about-us.php:212 widgets/blogs-featured.php:762
+#: widgets/blogs-video.php:305 widgets/blogs.php:296 widgets/form-gmap.php:179
+#: widgets/hero-slider.php:232 widgets/instagram.php:165
+#: widgets/newsletter.php:137 widgets/blogs-cover-post.php:102
+#: widgets/breadcrumbs.php:102 widgets/breaking-posts.php:102
+msgid "Style"
+msgstr ""
+
+#: widgets/blogs-featured.php:399
+msgid "Submit button text"
+msgstr ""
+
+#: widgets/blogs-featured.php:1247
+msgid "Subscribe our newsletter"
+msgstr ""
+
+#: widgets/blogs-featured.php:1234
+msgid "Tags"
+msgstr ""
+
+#: widgets/blogs-featured.php:634 widgets/instagram.php:109
+#: widgets/newsletter.php:109
+msgid "Title"
+msgstr ""
+
+#: widgets/form-gmap.php:248 widgets/instagram.php:234
+#: widgets/newsletter.php:153
+msgid "Title Color"
+msgstr ""
+
+#: widgets/breadcrumbs.php:110
+msgid "Typography"
+msgstr ""
+
+#: widgets/about-us.php:268
+msgid "Typography for Contents"
+msgstr ""
+
+#: widgets/hero-slider.php:263
+msgid "Typography for excerpt"
+msgstr ""
+
+#: widgets/blogs-cover-post.php:119
+msgid "Typography for for author"
+msgstr ""
+
+#: widgets/blogs-cover-post.php:135
+msgid "Typography for for button"
+msgstr ""
+
+#: widgets/blogs-cover-post.php:127
+msgid "Typography for for date"
+msgstr ""
+
+#: widgets/blogs-featured.php:822 widgets/blogs-video.php:314
+#: widgets/blogs.php:304
+msgid "Typography for for Title 2"
+msgstr ""
+
+#: widgets/form-gmap.php:310
+msgid "Typography for form sub title"
+msgstr ""
+
+#: widgets/about-us.php:221 widgets/blogs-featured.php:830
+#: widgets/blogs-video.php:322 widgets/blogs.php:313 widgets/form-gmap.php:287
+#: widgets/hero-slider.php:240 widgets/blogs-cover-post.php:111
+#: widgets/breaking-posts.php:111
+msgid "Typography for heading"
+msgstr ""
+
+#: widgets/about-us.php:291
+msgid "Typography for quote"
+msgstr ""
+
+#: widgets/form-gmap.php:264 widgets/instagram.php:250
+#: widgets/newsletter.php:169
+msgid "Typography for text description"
+msgstr ""
+
+#: widgets/form-gmap.php:241 widgets/instagram.php:227
+#: widgets/newsletter.php:146
+msgid "Typography for text title"
+msgstr ""
+
+#: widgets/blogs-featured.php:125 widgets/blogs-featured.php:151
+#: widgets/blogs-featured.php:176 widgets/blogs-featured.php:294
+#: widgets/blogs-featured.php:320 widgets/blogs-featured.php:347
+#: widgets/blogs-featured.php:363 widgets/blogs-featured.php:415
+#: widgets/blogs-featured.php:555 widgets/blogs-featured.php:596
+#: widgets/blogs-featured.php:668 widgets/blogs-featured.php:696
+#: widgets/blogs-featured.php:724 widgets/blogs-video.php:142
+#: widgets/blogs-video.php:168 widgets/blogs-video.php:193
+#: widgets/blogs.php:142 widgets/blogs.php:168 widgets/blogs.php:193
+#: widgets/hero-slider.php:182 widgets/hero-slider.php:208
+msgid "Yes"
+msgstr ""
+
+#: widgets/form-gmap.php:162
+msgid "Your email address will not be published. All the fields are required."
+msgstr ""
+
+#: widgets/about-us.php:181
+msgid "Your Sincerely"
+msgstr ""
