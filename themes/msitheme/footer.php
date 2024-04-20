@@ -14,15 +14,15 @@
 ?>
 	<footer id="colophon" class="site-footer">
 		<div class="container-default">
-			<div class="footer-top grid grid-2 align-center g-gap-20">
+			<div class="footer-top">
 				<?php if ( is_active_sidebar( 'footer-top-1' ) ) : ?>
 				<div class="footer-logo">
 					<?php dynamic_sidebar( 'footer-top-1' ) ?>
 				</div>
-				<?php endif; if ( is_active_sidebar( 'footer-top-2' ) ) : ?>
+				<!-- <?php //endif; if ( is_active_sidebar( 'footer-top-2' ) ) : ?>
 				<div class="newsletter">
-					<?php dynamic_sidebar( 'footer-top-2' ) ?>
-				</div>
+					<?php //dynamic_sidebar( 'footer-top-2' ) ?>
+				</div> -->
 				<?php endif; ?>
 			</div>
 			<div class="footer-middle grid grid-4 g-gap-20">

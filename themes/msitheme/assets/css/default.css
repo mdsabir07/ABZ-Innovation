@@ -1,6 +1,8 @@
 /* Global CSS */
 :root {
-    --fontFamily: "Barlow", sans-serif;
+    /* font family */
+    --fontFamily: "Archivo", sans-serif;
+    --fontFamily2: "Archivo Black", sans-serif;
     /* Font weight */
     --fw700: 700;
     --fw400: 400;
@@ -9,32 +11,32 @@
     --fz16: 16px;
     --fz18: 18px;
     --fz20: 20px;
+    --fz22: 22px;
     --fz24: 24px;
-    --fz28: 28px;
     --fz32: 32px;
+    --fz40: 40px;
     --fz48: 48px;
+    --fz56: 56px;
     --fz64: 64px;
-    --fz84: 84px;
+     /* line height */
+     --lh18: 18px;
+     --lh21: 20.8px;
+     --lh24: 24px;
+     --lh27: 27px;
+     --lh29: 28.8px;
+     --lh33: 33px;
+     --lh38: 38.4px;
+     --lh57: 57.6px;
+     --lh70: 70.4px;
     /* color */
-    --clrDarkRed: #AF1A15;
-    --clrDarkBlue: #070028;
-    --clrMidBlue: #546988;
-    --clrLightBlue: #B1DEE3;
-    --clrDarkGrey: #969696;
-    --clrMidWhite: #FAFAFA;
+    --clrOrange: #EC5118;
+    --clrBlack: #282929;
     --clrWhite: #fff;
-    --clrBlack: #171717;
+    --clrBody: #F9F9F9;
     --clrTransparent: transparent;
     /* transition */
     --transition: 0.3s all ease-in-out;
-    /* line height */
-    --lh18: 18px;
-    --lh27: 27px;
-    --lh36: 36px;
-    --lh42: 42px;
-    --lh48: 48px;
-    --lh76: 76.8px;
-    --lh100: 100.8px;
+   
     /* positioning */
     --relative: relative;
     --absolute: absolute;
@@ -51,6 +53,7 @@
     --dBlock: block;
     --dInlineBlock: inline-block;
     --dFlex: flex;
+    --flexShrink: 0;
     --inlineFlex: inline-flex;
     --dGrid: grid;
     --fWrap: wrap;
@@ -116,14 +119,14 @@ html, body {
     scroll-behavior: smooth;
 }
 body {
-    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.20);
     min-height: var(--hundred);
     font-family: var(--fontFamily);
     font-weight: var(--fw400);
     font-style: normal;
-    font-size: var(--fz18);
+    font-size: var(--fz16);
     line-height: var(--lh27);
-    background: var(--clrDarkBlue);
+    background: var(--clrBody);
+    color: var(--clrBlack);
 }
 main {
 	display: var(--dBlock);
@@ -520,41 +523,11 @@ img {
 .clrBlack-bg {
     background: var(--clrBlack);
 }
-.clrDarkBlue {
-    color: var(--clrDarkBlue);
+.clrOrange {
+    color: var(--clrOrange);
 }
-.clrDarkBlue-bg {
-    background: var(--clrDarkBlue);
-}
-.clrDarkGrey {
-    color: var(--clrDarkGrey);
-}
-.clrDarkGrey-bg {
-    background: var(--clrDarkGrey);
-}
-.clrDarkRed {
-    color: var(--clrDarkRed);
-}
-.clrDarkRed-bg {
-    background: var(--clrDarkRed);
-}
-.clrLightBlue {
-    color: var(--clrLightBlue);
-}
-.clrLightBlue-bg {
-    background: var(--clrLightBlue);
-}
-.clrMidBlue {
-    color: var(--clrMidBlue);
-}
-.clrMidBlue-bg {
-    background: var(--clrMidBlue);
-}
-.clrMidWhite {
-    color: var(--clrMidWhite);
-}
-.clrMidWhite-bg {
-    background: var(--clrMidWhite);
+.clrOrange-bg {
+    background: var(--clrOrange);
 }
 .clrWhite {
     color: var(--clrWhite);
@@ -695,6 +668,9 @@ img {
 }
 .inline-flex {
     display: var(--inlineFlex);
+}
+.flexShrink {
+    flex-shrink: var(--flexShrink);
 }
 .f-gap-5 {
     gap: 5px;
@@ -909,15 +885,15 @@ img {
 }
 
 .main-navigation ul li:hover > a {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .main-navigation ul ul li:hover {
-    border-color: var(--clrDarkRed);
+    border-color: var(--clrOrange);
 }
 
 .main-navigation ul ul li:hover::before {
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
 }
 
 .main-navigation ul li:hover ul {
@@ -937,7 +913,7 @@ img {
     position: var(--absolute);
     content: '\f107';
     font-family: 'FontAwesome';
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
     right: -15px;
     top: 3px;
     font-size: 12px;
@@ -972,11 +948,11 @@ img {
 }
 
 .widget ul li:hover a {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .widget ul li:hover {
-    border-color: var(--clrDarkRed);
+    border-color: var(--clrOrange);
 }
 
 .footer-bottom .textwidget p {
@@ -1007,8 +983,8 @@ img {
 }
 
 .footer-socials a:hover {
-    border-color: var(--clrDarkRed);
-    color: var(--clrDarkRed);
+    border-color: var(--clrOrange);
+    color: var(--clrOrange);
 }
 
 .email-field, .email-field input {
@@ -1045,9 +1021,9 @@ img {
     color: var(--clrWhite);
 }
 .newsletter-submit button:hover {
-    /* background: var(--clrDarkRed); */
-    border-color: var(--clrDarkRed);
-    color: var(--clrDarkRed);
+    /* background: var(--clrOrange); */
+    border-color: var(--clrOrange);
+    color: var(--clrOrange);
 }
 
 
@@ -1203,6 +1179,7 @@ img {
     position: var(--absolute);
     z-index: 10;
     width: var(--w100);
+    background: var(--clrBlack);
 }
 
 .admin-bar .site-header {
@@ -1281,7 +1258,7 @@ img#hand {
 }
 
 .button.theme-btn:hover {
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
     color: var(--clrWhite);
     border-color: var(--clrTransparent);
 }
@@ -1435,7 +1412,7 @@ img#hand {
     -webkit-box-orient: vertical;
 }
 .single-product-item .entry-details h4 a:hover {
-    color: var(--clrDarkRed) !important;
+    color: var(--clrOrange) !important;
 }
 
 /* Social CSS */
@@ -1625,7 +1602,7 @@ img#hand {
 }
 
 .blog .theme-border::before, .blog .section-top-heading::after {
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
 }
 
 .blog-page article .entry-header .entry-title a {
@@ -1654,7 +1631,7 @@ img#hand {
 }
 
 .blog-page article:hover .entry-title a {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .blog-page article:hover .entry-content {
@@ -1663,7 +1640,7 @@ img#hand {
 
 .blog-page article:hover .entry-content::before,
 .blog-page article:hover .entry-content::after {
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
 }
 
 /* single page CSS */
@@ -1703,7 +1680,7 @@ body.single main {
 }
 
 .single .entry-title a:hover {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 .single .navigation.post-navigation {
     display: var(--none);
@@ -1737,7 +1714,7 @@ body.single main {
     padding-bottom: 2px;
 }
 .product-tab:hover label {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .product-tab-content {
@@ -1886,7 +1863,7 @@ body.single main {
 
 .tab-content-right-img i.fa-plus:hover {
     transform: rotate(90deg);
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
     color: var(--clrWhite);
 }
 
@@ -1903,8 +1880,8 @@ body.single main {
 }
 
 .aircraft-icon-btn:hover {
-    color: var(--clrDarkRed);
-    border-color: var(--clrDarkRed);
+    color: var(--clrOrange);
+    border-color: var(--clrOrange);
 }
 
 /* Pulse css */
@@ -1986,7 +1963,7 @@ body.single main {
 }
 
 .event-cat-name::before, .event-cat-name::after {
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
 }
 .event-cat-list {
     opacity: 0.45;
@@ -2062,7 +2039,7 @@ body.single main {
 }
 
 .msitheme-contact-form .required {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .obligatory {
@@ -2077,7 +2054,7 @@ body.single main {
     justify-content: var(--center);
     align-items: var(--center);
     gap: 10px;
-    background: var(--clrDarkRed);
+    background: var(--clrOrange);
     border-bottom: var(--none);
     color: var(--clrWhite);
     font-size: var(--fz12);
@@ -2154,7 +2131,7 @@ body.single main {
     margin-bottom: 24px;
 }
 h5.dealer-title:hover {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
     cursor: var(--pointer);
 }
 
@@ -2192,7 +2169,7 @@ h5.dealer-title:hover {
     padding: 24px var(--zero);
 }
 .document-tab:hover label {
-    color: var(--clrDarkRed);
+    color: var(--clrOrange);
 }
 
 .document-tab-content {
@@ -2244,7 +2221,7 @@ h5.dealer-title:hover {
 }
 
 .document-content a:hover i {
-    color: var(--clrDarkRed) !important;
+    color: var(--clrOrange) !important;
     transform: scale(1.2);
 }
 
@@ -2263,7 +2240,7 @@ h5.dealer-title:hover {
 }
 
 .msitheme-faq-inner input:checked ~ .msitheme-faq-content {
-    border-bottom: 1px var(--solid) var(--clrDarkRed);
+    border-bottom: 1px var(--solid) var(--clrOrange);
 }
 
 .msitheme-faq-inner input:checked ~ label i {
@@ -2271,7 +2248,7 @@ h5.dealer-title:hover {
 }
 .msitheme-faq-inner input:checked ~ label i,
 .msitheme-faq-inner input:checked ~ label .faq-title {
-    color: var(--clrDarkRed) !important;
+    color: var(--clrOrange) !important;
 }
 .msitheme-faq-inner .msitheme-faq-content {
     max-height: var(--zero);
@@ -2579,8 +2556,8 @@ ul.power-tabs {
 }
 
 .product-power-slider .slick-arrow:hover {
-    background: var(--clrDarkRed);
-    border-color: var(--clrDarkRed);
+    background: var(--clrOrange);
+    border-color: var(--clrOrange);
 }
 
 .arrow-right.slick-arrow {
@@ -2757,7 +2734,7 @@ html, body {
         z-index: 99;
     }
     .responsive-menu-close:hover {
-        color: var(--clrDarkRed);
+        color: var(--clrOrange);
    }
    .main-navigation.mobile-menu ul li a {
         padding: 8px 8px 14px;
@@ -2774,7 +2751,7 @@ html, body {
         color: var(--clrWhite);
     }
     .main-navigation ul li:hover:after, .main-navigation ul li:hover > a {
-        color: var(--clrDarkRed);
+        color: var(--clrOrange);
     }
     .main-navigation ul li:hover:after {
         transform: rotate(90deg);

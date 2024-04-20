@@ -61,7 +61,26 @@ if (class_exists('CSF')) {
         'title'  => esc_html__('Footer informations', 'msitheme'),
         'icon'   => 'fas fa-file-code',
 		'fields' => array(
-			// A text field
+			array(
+				'id'                              => 'footer_bg',
+				'type'                            => 'background',
+				'title'                           => 'Background',
+				'background_image'             => true,
+				'background_origin'               => true,
+				'background_clip'                 => true,
+				'background_blend_mode'           => true,
+				'background_image_preview'           => true,
+				'output'           => '.site-footer',
+				'default'                         => array(
+					'background-color'              => '#111',
+					'background-gradient-color'     => '#555',
+					'background-gradient-direction' => 'to bottom',
+					'background-size'               => 'cover',
+					'background-position'           => 'center center',
+					'background-repeat'             => 'repeat',
+				)
+			),
+			  
 			
 			array(
 				'id' => 'logo_text',

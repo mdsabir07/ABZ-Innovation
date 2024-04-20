@@ -42,7 +42,7 @@ if (array_key_exists('header-logo', $page_meta)) {
 
 	<header id="masthead" class="site-header">
 		<div class="container-default">
-			<div class="header-wrap grid grid-2-7-3 align-center g-gap-30">
+			<div class="header-wrap flex justify-between align-center flexShrink">
 				<div class="site-branding">
 					<?php
 					if ( !empty($logo) ) : ?>
@@ -82,12 +82,7 @@ if (array_key_exists('header-logo', $page_meta)) {
 					);
 					?>
 				</nav><!-- #site-navigation -->
-				<div class="header-right-content flex align-center f-gap-10">
-					<?php if ( !empty( $msitheme['language'] ) ) : ?>
-						<div class="languages clrDarkBlue fz-12 fw-700">
-							<?php echo esc_html( $msitheme['language'] ); ?>
-						</div>
-					<?php endif; ?>
+				<div class="header-right-content">
 					<?php if ( ! wp_is_mobile() ) : ?>
 						<div class="header-btn">
 							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
