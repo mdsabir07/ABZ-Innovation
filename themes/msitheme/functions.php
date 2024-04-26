@@ -134,7 +134,7 @@ function msitheme_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'before_title'  => '<h6 class="widget-title uppercase fz-16 lh-21 clrOrange">',
 			'after_title'   => '</h6>',
 		)
 	);
@@ -158,23 +158,12 @@ function msitheme_widgets_init() {
 	// );
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer middle 2', 'msitheme' ),
-			'id'            => 'footer-mid-2',
-			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
-			'after_title'   => '</h6>',
-		)
-	);
-	register_sidebar(
-		array(
 			'name'          => esc_html__( 'Footer middle 3', 'msitheme' ),
 			'id'            => 'footer-mid-3',
 			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'before_title'  => '<h6 class="widget-title uppercase fz-16 lh-21 clrOrange">',
 			'after_title'   => '</h6>',
 		)
 	);
@@ -185,7 +174,7 @@ function msitheme_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'msitheme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h6 class="widget-title uppercase fz-18 lh-27 clrWhite">',
+			'before_title'  => '<h6 class="widget-title uppercase fz-16 lh-21 clrOrange">',
 			'after_title'   => '</h6>',
 		)
 	);
@@ -217,7 +206,7 @@ function msitheme_scripts() {
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/css/slick-theme.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), 'all' );
-	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap' );
+	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap' );
 	wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css', array(), _S_VERSION, 'all' );
 	wp_enqueue_style( 'msitheme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'msitheme-style', 'rtl', 'replace' );
@@ -231,11 +220,6 @@ function msitheme_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'msitheme_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -267,12 +251,6 @@ require get_template_directory() . '/inc/custom-posts.php';
  */
 require get_template_directory() . '/inc/shortcodes.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 /**
  * Excerpt length
@@ -281,3 +259,15 @@ function word_count($string, $limit) {
 	$words = explode(' ', $string);
 	return implode(' ', array_slice($words, 0, $limit));
 }
+
+/**
+ * Adds a css class to the body element
+ */
+function msitheme_body_class_for_pages( $classes ) {
+	if ( is_singular( 'page' ) ) {
+		global $post;
+		$classes[] = 'page-' . $post->post_name;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'msitheme_body_class_for_pages' );

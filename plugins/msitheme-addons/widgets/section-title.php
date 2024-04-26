@@ -95,20 +95,10 @@ class SectionTitle extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Products content', 'msitheme' ),
+				'label' => __( 'Section title', 'msitheme' ),
 			]
 		);
-		
-        $this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'background',
-				'label' => esc_html__( 'Background', 'msitheme' ),
-				'types' => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .msitheme-news-wrap',
-			]
-		);
-        		
+			
 		$this->add_control(
 			'show_top_heading',
 			[
@@ -128,22 +118,6 @@ class SectionTitle extends Widget_Base {
 				'label' => __( 'Top heading', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
-				'condition'	=> [
-					'show_top_heading'	=> 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'top_heading_border',
-			[
-				'label' => __( 'Top heading border?', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'yes',
-				'options' => [
-					'yes'	=> __( 'Yes', 'msitheme' ), 
-					'no'	=> __( 'No', 'msitheme' ), 
-				],
 				'condition'	=> [
 					'show_top_heading'	=> 'yes',
 				],
@@ -250,62 +224,13 @@ class SectionTitle extends Widget_Base {
 			[
 				'label' => __( 'Top Heading Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
+				'default' => '#282929',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .section-top-heading' => 'color: {{VALUE}}',
-				],
-			]
-		);
-		
-        $this->add_control(
-			'heading_border_color',
-			[
-				'label' => __( 'Top Heading Border Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#fff',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
-				],
-			]
-		);
-		$this->add_control(
-			'heading_border_width',
-			[
-				'label' => __( 'Top Heading Border width', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '100',
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before' => 'width: {{VALUE}}%',
-				],
-			]
-		);
-		$this->add_control(
-			'border_position',
-			[
-				'label' => esc_html__( 'Border alignment ', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'block' => [
-						'title' => esc_html__( 'Left', 'msitheme' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'inline-block' => [
-						'title' => esc_html__( 'Center', 'msitheme' ),
-						'icon' => 'eicon-text-align-center',
-					],
-				],
-				'default' => 'block',
-				'toggle' => true,
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'display: {{VALUE}};',
 				],
 			]
 		);
@@ -324,13 +249,26 @@ class SectionTitle extends Widget_Base {
 			[
 				'label' => __( 'Section Heading Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
+				'default' => '#282929',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .section-heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_control(
+			'section_heading_variation',
+			[
+				'label' => __( 'Section Heading Variation', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				// 'show_label' => true,
+				'default' => '125',
+				'selectors' => [
+					'{{WRAPPER}} .section-heading' => 'font-variation-settings: "wdth" {{VALUE}}',
 				],
 			]
 		);
@@ -361,20 +299,11 @@ class SectionTitle extends Widget_Base {
 		
 		?>
             <div class="section-title-wrap">
-                <?php 
-                if($settings['show_top_heading'] === 'yes') : 
-                    if ( !empty($settings['top_heading']) ) : 
-                        if ( $settings['top_heading_border'] === 'yes' ) :
-                            $border = ' theme-border relative';
-                        else : 
-                            $border = '';
-                        endif;
-                ?>
-                    <h6 class="section-top-heading<?php echo esc_attr( $border ); ?>">
+                <?php if($settings['show_top_heading'] === 'yes') :  if ( !empty($settings['top_heading']) ) : ?>
+                    <h4 class="section-top-heading">
                         <?php echo esc_html( $settings['top_heading'] ); ?>
-                    </h6>
-                <?php endif; endif;
-                if($settings['show_section_title'] === 'yes') : ?>
+                    </h4>
+                <?php endif; endif; if($settings['show_section_title'] === 'yes') : ?>
                     <<?php echo esc_attr( $settings['section_title_tag'] ); ?> class="section-heading">
                         <?php echo wp_kses_post( $settings['section_title'] ); ?>
                     </<?php echo esc_attr( $settings['section_title_tag'] ); ?>>

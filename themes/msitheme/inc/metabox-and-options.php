@@ -26,11 +26,11 @@ if (class_exists('CSF')) {
         'icon'   => 'fas fa-file-code',
 		'fields' => array(
 			// A text field
-			array(
-				'id' => 'language',
-				'type' => 'wp_editor',
-				'title' => esc_html__('Insert language shortcode', 'msitheme'),
-			),
+			// array(
+			// 	'id' => 'language',
+			// 	'type' => 'wp_editor',
+			// 	'title' => esc_html__('Insert language shortcode', 'msitheme'),
+			// ),
 			
 			array(
 				'id' => 'header_button',
@@ -66,14 +66,12 @@ if (class_exists('CSF')) {
 				'type'                            => 'background',
 				'title'                           => 'Background',
 				'background_image'             => true,
-				'background_origin'               => true,
-				'background_clip'                 => true,
 				'background_blend_mode'           => true,
 				'background_image_preview'           => true,
 				'output'           => '.site-footer',
 				'default'                         => array(
-					'background-color'              => '#111',
-					'background-gradient-color'     => '#555',
+					'background-color'              => '',
+					'background-gradient-color'     => '',
 					'background-gradient-direction' => 'to bottom',
 					'background-size'               => 'cover',
 					'background-position'           => 'center center',
@@ -83,9 +81,9 @@ if (class_exists('CSF')) {
 			  
 			
 			array(
-				'id' => 'logo_text',
-				'type' => 'textarea',
-				'title' => esc_html__('Type text for display under the logo', 'msitheme'),
+				'id' => 'logo_heading',
+				'type' => 'text',
+				'title' => esc_html__('Type heading under the logo', 'msitheme'),
 			),
 			
 			array(
@@ -98,30 +96,6 @@ if (class_exists('CSF')) {
 				'id' => 'address_txt',
 				'type' => 'textarea',
 				'title' => esc_html__('Type address', 'msitheme'),
-			),
-			
-			array(
-				'id' => 'phone_number',
-				'type' => 'text',
-				'title' => esc_html__('Type phone number', 'msitheme'),
-			),
-			
-			array(
-				'id' => 'phone_link',
-				'type' => 'text',
-				'title' => esc_html__('Type phone link number', 'msitheme'),
-			),
-			
-			array(
-				'id' => 'email',
-				'type' => 'text',
-				'title' => esc_html__('Email', 'msitheme'),
-			),
-			
-			array(
-				'id' => 'email_link',
-				'type' => 'text',
-				'title' => esc_html__('Email link', 'msitheme'),
 			),
 		)
 	));
@@ -166,6 +140,43 @@ if (class_exists('CSF')) {
 				'id' => 'youtube',
 				'type' => 'text',
 				'title' => esc_html__('Insert youtube link', 'msitheme'),
+			),
+		)
+	));
+
+	CSF::createSection($msitheme_options_prefix, array(
+		'parent' => 'footer-options',
+        'title'  => esc_html__('Contact information', 'msitheme'),
+        'icon'   => 'fas fa-file-code',
+		'fields' => array(
+			// A text field
+			array(
+				'id'    => 'email_widget_heading',
+				'type'  => 'text',
+				'title' => 'widget heading',
+			),
+			array(
+				'id'        => 'foo_emails',
+				'type'      => 'repeater',
+				'title'     => 'Emails',
+				'fields'    => array(
+					array(
+						'id'    => 'email_heading',
+						'type'  => 'text',
+						'title' => 'Email heading Text',
+					),
+					array(
+						'id'    => 'email',
+						'type'  => 'text',
+						'title' => 'Email Text',
+					),
+					array(
+						'id'    => 'email_link',
+						'type'  => 'text',
+						'title' => 'Email link',
+					),
+				
+				)
 			),
 		)
 	));
@@ -260,6 +271,24 @@ if (class_exists('CSF')) {
 	// Create a section
 	CSF::createSection($msitheme_metabox_prefix, array(
 		'fields' => array(
+			array(
+				'id'                              => 'header_bg',
+				'type'                            => 'background',
+				'title'                           => 'Header Background',
+				'background_image'             => true,
+				'background_gradient'             => true,
+				'background_blend_mode'           => true,
+				'background_image_preview'           => true,
+				'output'           => '.site-header',
+				'default'                         => array(
+					'background-color'              => '#282929',
+					'background-gradient-color'     => '#555',
+					'background-gradient-direction' => 'to bottom',
+					'background-size'               => 'cover',
+					'background-position'           => 'center center',
+					'background-repeat'             => 'repeat',
+				)
+			),
 			// changing header menu color as per the page
 			array(
 				'id'     => 'header_menu_color',
@@ -283,25 +312,27 @@ if (class_exists('CSF')) {
 				'title'   => 'Change header logo',
 				'library' => 'image',
 			),
-			// array(
-			// 	'id' => 'enable_page_title',
-			// 	'type' => 'switcher',
-			// 	'title' => 'Enable page title?',
-			// 	'default' => true,
-			// ),
-			// array(
-			// 	'id' => 'custom_title',
-			// 	'type' => 'textarea',
-			// 	'title' => esc_html__('Custom title', 'msitheme'),
-			// 	'desc' => esc_html__('Type custom title here', 'msitheme'),
-			// 	'dependency' => array('enable_page_title', '==', 'true'),
-			// ),
-			// array(
-			// 	'id' => 'default_padding',
-			// 	'type' => 'switcher',
-			// 	'title' => 'Enable default padding?',
-			// 	'default' => true,
-			// ),
+			
+			array(
+				'id'                              => 'body_bg',
+				'type'                            => 'background',
+				'title'                           => 'Body Background',
+				// 'background_image'             => true,
+				'background_origin'               => true,
+  				'background_clip'                 => true,
+				'background_gradient'             => true,
+				'background_blend_mode'           => true,
+				'background_image_preview'           => true,
+				'output'           => 'body',
+				'default'                         => array(
+					'background-color'              => '',
+					'background-gradient-color'     => '',
+					'background-gradient-direction' => 'right to left',
+					'background-size'               => 'cover',
+					'background-position'           => 'center center',
+					'background-repeat'             => 'repeat',
+				)
+			),
 		)
 	));
 
@@ -442,6 +473,23 @@ if (class_exists('CSF')) {
 				'title'   => 'Change header logo',
 				'library' => 'image',
 			),
+			// array(
+			// 	'id'                              => 'header_bg',
+			// 	'type'                            => 'background',
+			// 	'title'                           => 'Header Background',
+			// 	'background_gradient'             => true,
+			// 	'background_blend_mode'           => true,
+			// 	'background_image_preview'           => true,
+			// 	'output'           => '.site-header',
+			// 	'default'                         => array(
+			// 		'background-color'              => '#111',
+			// 		'background-gradient-color'     => '#555',
+			// 		'background-gradient-direction' => 'to bottom',
+			// 		'background-size'               => 'cover',
+			// 		'background-position'           => 'center center',
+			// 		'background-repeat'             => 'repeat',
+			// 	)
+			// ),
 		)
 	));
 

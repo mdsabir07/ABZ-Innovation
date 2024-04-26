@@ -98,32 +98,30 @@ class BorderHeading extends Widget_Base {
 				'label' => __( 'Border heading', 'msitheme' ),
 			]
 		);
-		
-        $this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'background',
-				'label' => esc_html__( 'Background', 'msitheme' ),
-				'types' => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .msitheme-news-wrap',
-			]
-		);
         		
 		$this->add_control(
 			'top_heading',
 			[
-				'label' => __( 'Heading', 'msitheme' ),
+				'label' => __( 'Top heading', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'show_label' => true,
+			]
+		);
+		$this->add_control(
+			'heading',
+			[
+				'label' => __( 'Border heading', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'show_label' => true,
 			]
 		);
 
-        $this->add_control(
-			'section_title_tag',
+		$this->add_control(
+			'title_tag',
 			[
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'label' => esc_html__( 'HTML tag', 'msitheme' ),
-				'default' => 'h6',
+				'label' => esc_html__( 'Heading HTML tag', 'msitheme' ),
+				'default' => 'h3',
 				'options' => [
 					'h1' => esc_html__( 'H1', 'msitheme' ),
 					'h2' => esc_html__( 'H2', 'msitheme' ),
@@ -134,10 +132,15 @@ class BorderHeading extends Widget_Base {
 					'div' => esc_html__( 'div', 'msitheme' ),
 					'span' => esc_html__( 'span', 'msitheme' ),
 					'p' => esc_html__( 'p', 'msitheme' ),
-				],
-				'condition'	=> [
-					'show_section_title'	=> 'yes',
-				],
+				]
+			]
+		);
+
+		$this->add_control(
+			'desc',
+			[
+				'label' => __( 'Description', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::WYSIWYG,
 			]
 		);
 
@@ -167,7 +170,7 @@ class BorderHeading extends Widget_Base {
 				'default' => 'center',
 				'toggle' => true,
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .border-heading-wrap' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -184,22 +187,46 @@ class BorderHeading extends Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'top_heading_typography',
-				'label' => __( 'Typography for heading', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-top-heading',
+				'label' => __( 'Typography for top heading', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .border-top-heading',
 			]
 		);
         $this->add_control(
 			'top_heading_color',
 			[
-				'label' => __( 'Heading Color', 'msitheme' ),
+				'label' => __( 'Top Heading Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
+				'default' => '#fff',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .border-top-heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'heading_typography',
+				'label' => __( 'Typography for heading', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .border-heading',
+			]
+		);
+        $this->add_control(
+			'heading_color',
+			[
+				'label' => __( 'Heading Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .border-heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -215,7 +242,7 @@ class BorderHeading extends Widget_Base {
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .border-heading::before' => 'background: {{VALUE}}',
 				],
 			]
 		);
@@ -224,9 +251,33 @@ class BorderHeading extends Widget_Base {
 			[
 				'label' => __( 'Border width', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '100',
+				'default' => '50',
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before' => 'width: {{VALUE}}%',
+					'{{WRAPPER}} .border-heading::before' => 'width: {{VALUE}}%',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'desc_typography',
+				'label' => __( 'Typography for description', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .border-desc',
+			]
+		);
+        $this->add_control(
+			'desc_color',
+			[
+				'label' => __( 'description Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .border-desc' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -246,13 +297,23 @@ class BorderHeading extends Widget_Base {
 	{
 		$settings = $this->get_settings_for_display();
 
-		if ( !empty($settings['top_heading']) ) :
-            ?>
-                <h6 class="section-top-heading theme-border relative">
-                    <?php echo wp_kses_post( $settings['top_heading'] ); ?>
-                </h6>	
-            <?php
-        endif;
+		?>
+			<div class="border-heading-wrap">
+				<?php if ( !empty( $settings['top_heading'] ) ) : ?>
+					<div class="border-top-heading fontVariation">
+						<?php echo wp_kses_post( $settings['top_heading'] ); ?>
+					</div>
+				<?php endif; if ( !empty( $settings['heading'] ) ) : ?>
+					<<?php echo esc_attr( $settings['title_tag'] ); ?> class="border-heading fontVariation">
+						<?php echo wp_kses_post( $settings['heading'] ); ?>
+					</<?php echo esc_attr( $settings['title_tag'] ); ?>>
+				<?php endif; if ( !empty( $settings['desc'] ) ) : ?>
+					<div class="border-desc">
+						<?php echo esc_html( $settings['desc'] ); ?>
+					</div>
+				<?php endif; ?>
+			</div>	
+		<?php
 	}
 
 }

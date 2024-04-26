@@ -108,56 +108,19 @@ class CounterUp extends Widget_Base {
 				'selector' => '{{WRAPPER}} .counter-fun-wrap',
 			]
 		);
-        		
-		$this->add_control(
-			'show_top_heading',
-			[
-				'label' => __( 'Show top heading', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'yes',
-				'options' => [
-					'yes'	=> __( 'Yes', 'msitheme' ), 
-					'no'	=> __( 'No', 'msitheme' ), 
-				],
-			]
-		);
-
-		$this->add_control(
-			'top_heading',
-			[
-				'label' => __( 'Top heading', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'show_label' => true,
-				'condition'	=> [
-					'show_top_heading'	=> 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'top_heading_border',
-			[
-				'label' => __( 'Top heading border?', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'yes',
-				'options' => [
-					'yes'	=> __( 'Yes', 'msitheme' ), 
-					'no'	=> __( 'No', 'msitheme' ), 
-				],
-				'condition'	=> [
-					'show_top_heading'	=> 'yes',
-				],
-			]
-		);
-
 
 		$repeater = new \Elementor\Repeater();
 		$repeater->add_control(
-			'fun_txt',
+			'fun_icon',
 			[
-				'label'	=> __( 'Counter text', 'msitheme' ),
-				'type'	=> Controls_Manager::TEXT,
-				'label_block'	=> true,
+				'label' => esc_html__( 'Select icon', 'textmsithemedomain' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					'fa-globe' => esc_html__( 'Globe', 'msitheme' ),
+					'fa-user-group'  => esc_html__( 'Users', 'msitheme' ),
+					'fa-calendar-check' => esc_html__( 'Calendar', 'msitheme' ),
+					'fa-trophy' => esc_html__( 'Trophy', 'msitheme' ),
+				]
 			]
 		);
 
@@ -170,36 +133,42 @@ class CounterUp extends Widget_Base {
 			]
 		);
 
+		$repeater->add_control(
+			'fun_symbol',
+			[
+				'label' => esc_html__( 'Counter symbol', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+			]
+		);
+		$repeater->add_control(
+			'fun_txt',
+			[
+				'label'	=> __( 'Counter text', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+			]
+		);
+
+		// $repeater->add_control(
+		// 	'data_color',
+		// 	[
+		// 		'label' => __( 'Data Color', 'msitheme' ),
+		// 		'type' => \Elementor\Controls_Manager::COLOR,
+		// 		'default' => '#F25119',
+		// 		'scheme' => [
+		// 			'type' => \Elementor\Core\Schemes\Color::get_type(),
+		// 			'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+		// 		]
+		// 	]
+		// );
+
 		$this->add_control(
 			'funs',
 			[
 				'label' => esc_html__( 'Counter box', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-			]
-		);
-
-		$this->add_control(
-			'btn_label',
-			[
-				'label'	=> __( 'Button label', 'msitheme' ),
-				'type'	=> Controls_Manager::TEXT,
-				'label_block'	=> true,
-			]
-		);
-
-		$this->add_control(
-			'btn_link',
-			[
-				'label' => esc_html__( 'Button Link', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://domain-link.com', 'msitheme' ),
-				'show_external' => true,
-				'default' => [
-					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
-				],
 			]
 		);
 		$this->end_controls_section();
@@ -209,69 +178,6 @@ class CounterUp extends Widget_Base {
 			[
 				'label' => __( 'Style', 'msitheme' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'top_heading_typography',
-				'label' => __( 'Typography for top heading', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-top-heading',
-			]
-		);
-        $this->add_control(
-			'top_heading_color',
-			[
-				'label' => __( 'Top Heading Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'color: {{VALUE}}',
-				],
-			]
-		);
-		$this->add_control(
-			'heading_border_color',
-			[
-				'label' => __( 'Heading Border Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#fff',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'funtxt_typography',
-				'label' => __( 'Typography for counter text', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .single-fun h6',
-			]
-		);
-
-        $this->add_control(
-			'section_heading_color',
-			[
-				'label' => __( 'Counter text Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .single-fun h6' => 'color: {{VALUE}}',
-				],
 			]
 		);
 
@@ -288,7 +194,7 @@ class CounterUp extends Widget_Base {
 			[
 				'label' => __( 'Counter number Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#fff',
+				'default' => '#F25119',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
@@ -298,72 +204,79 @@ class CounterUp extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'symbol_typography',
+				'label' => __( 'Typography for counter symbol', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .counter-symbol',
+			]
+		);
+		$this->add_control(
+			'symbol_color',
+			[
+				'label' => __( 'Counter symbol Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#F25119',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .counter-symbol' => 'color: {{VALUE}}',
+				],
+			]
+		);
 		
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'button_typography',
-				'label' => __( 'Typography for button', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .theme-btn',
+				'name' => 'txt_typography',
+				'label' => __( 'Typography for text', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .fun-text',
 			]
 		);
-		$this->add_control(
-			'button_color',
+
+        $this->add_control(
+			'text_color',
 			[
-				'label' => __( 'Button Color', 'msitheme' ),
+				'label' => __( 'Counter text Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
+				'default' => '#FFF',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .theme-btn' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .fun-text' => 'color: {{VALUE}}',
 				],
 			]
 		);
 		$this->add_control(
-			'button_bg_color',
+			'icon_size',
 			[
-				'label' => __( 'Button Background Color', 'msitheme' ),
+				'label' => esc_html__( 'Icon size', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+				'default' => '20',
+				'selectors' => [
+					'{{WRAPPER}} .fun-icon i' => 'font-size: {{VALUE}}px',
+				],
+			]
+		);
+		$this->add_control(
+			'icon_color',
+			[
+				'label' => __( 'Icon Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '',
+				'default' => '#F25119',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .theme-btn' => 'background: {{VALUE}}',
-				],
-			]
-		);
-		$this->add_control(
-			'button_hover_color',
-			[
-				'label' => __( 'Button hover Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#050028',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .theme-btn:hover' => 'color: {{VALUE}}',
-				],
-			]
-		);
-		$this->add_control(
-			'button_hover_bg',
-			[
-				'label' => __( 'Button hover background Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .theme-btn:hover' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .fun-icon i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -387,53 +300,41 @@ class CounterUp extends Widget_Base {
             <!-- start counter fun -->
 			<div class="counter-fun-wrap">
                 <div class="container-default">
-					<?php if($settings['show_top_heading'] === 'yes') : 
-						if ( !empty($settings['top_heading']) ) : 
-							if ( $settings['top_heading_border'] === 'yes' ) :
-								$border = ' theme-border relative';
-							else : 
-								$border = '';
-							endif;
-						?>
-							<h6 class="section-top-heading<?php echo esc_attr( $border ); ?>">
-								<?php echo esc_html( $settings['top_heading'] ); ?>
-							</h6>
-					<?php endif; endif; 
-					if ( !empty($settings['funs']) ) : ?>
+					<?php if ( !empty($settings['funs']) ) : ?>
 						<div class="counter-inner flex align-center justify-between">
 							<?php foreach( $settings['funs'] as $fun ) : ?>
 								<div class="counter-single-inner relative">
-									<div class="single-fun flex align-center justify-between theme-border">
-										<?php if (!empty($fun['fun_txt']) ) : ?>
-											<h6>
-												<?php echo esc_html( $fun['fun_txt'] ); ?>
-											</h6>
-										<?php endif; if (!empty($fun['fun_number']) ) : ?>
-											<span class="count">
-												<?php echo esc_html( $fun['fun_number'] ); ?>
-											</span>
+								<!-- data-color="<?php // echo esc_attr( $fun['data_color'] ); ?>" -->
+									<div class="single-fun flex align-center justify-between" data-degree="<?php echo esc_attr( $fun['fun_number'] ); ?>">
+										<?php if ( !empty( $fun['fun_icon'] ) ) : ?>
+											<div class="fun-icon">
+												<i class="fa-solid <?php echo esc_attr( $fun['fun_icon'] ) ?>"></i>
+											</div>
 										<?php endif; ?>
+										<div class="fun-content">
+											<?php if (!empty($fun['fun_number']) ) : ?>
+												<span class="count">
+													<?php echo esc_html( $fun['fun_number'] ); ?>
+												</span>
+											<?php endif; if (!empty($fun['fun_symbol']) ) :  ?>
+												<span class="counter-symbol">
+													<?php echo esc_html( $fun['fun_symbol'] ); ?>
+												</span>
+											<?php endif; if (!empty($fun['fun_txt']) ) :  ?>
+												<div class="fun-text">
+													<?php echo esc_html( $fun['fun_txt'] ); ?>
+												</div>
+											<?php endif; ?>
+										</div>
 									</div>
 								</div>
-							<?php endforeach; 
-							if(!empty($settings['btn_label'])) : ?>
-								<div class="theme-btns">
-									<?php 
-										$target = $settings['btn_link']['is_external'] ? ' target="_blank"' : '';
-										$nofollow = $settings['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
-									?>
-									<a class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue" href="<?php echo esc_url( $settings['btn_link']['url'] ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?>>
-										<?php echo esc_html( $settings['btn_label'] ); ?>
-									</a>
-								</div>
-							<?php endif; ?>
+							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>
                 </div>
 			</div>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
             <!-- end counter up -->
+
 		<?php 
 	}
 

@@ -120,35 +120,7 @@ class VideoGallery extends Widget_Base
 			]
 		);
 
-        $repeater = new \Elementor\Repeater();
-		$repeater->add_control(
-			'top_heading',
-			[
-				'label' => __( 'Top heading', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'show_label' => true,
-			]
-		);
-
-		$repeater->add_control(
-			'section_title',
-			[
-				'label' => __( 'Title', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'show_label' => true,
-			]
-		);
-
-        $repeater->add_control(
-			'play_label',
-			[
-				'label' => __( 'Play label', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'show_label' => true,
-			]
-		);
-
-        $repeater->add_control(
+        $this->add_control(
 			'image',
 			[
 				'label' => esc_html__( 'Choose Image', 'textdomain' ),
@@ -159,40 +131,7 @@ class VideoGallery extends Widget_Base
 			]
 		);
 
-        $repeater->add_control(
-			'btn_type',
-			[
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'label' => esc_html__( 'Select Button type', 'msitheme' ),
-				'default' => '1',
-				'options' => [
-					'1' => esc_html__( 'Video', 'msitheme' ),
-					'2' => esc_html__( 'Custom link', 'msitheme' ),
-				],
-			]
-		);
-		$repeater->add_control(
-			'btn_label',
-			[
-				'label'	=> __( 'Button label', 'msitheme' ),
-				'type'	=> Controls_Manager::TEXT,
-				'label_block'	=> true,
-				'condition'	=> [
-					'btn_type'	=> '2',
-				],
-			]
-		);
-
-		$repeater->add_control(
-			'btn_link',
-			[
-				'label' => esc_html__( 'Button Link', 'msitheme' ),
-				'type'	=> Controls_Manager::TEXT,
-				'label_block'	=> true,
-			]
-		);
-
-        $repeater->add_control(
+        $this->add_control(
 			'video_type',
 			[
 				'type' => \Elementor\Controls_Manager::SELECT,
@@ -202,56 +141,59 @@ class VideoGallery extends Widget_Base
 					'1' => esc_html__( 'YouTube', 'msitheme' ),
 					'2' => esc_html__( 'Vimeo', 'msitheme' ),
 					'3' => esc_html__( 'From media library', 'msitheme' ),
-				],
-				'condition'	=> [
-					'btn_type'	=> '1',
-				],
+				]
 			]
 		);
 
-        $repeater->add_control(
+        $this->add_control(
 			'youtube',
 			[
 				'label' => __( 'Inser YouTube video link', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 				'condition'	=> [
 					'video_type'	=> '1',
 				],
 			]
 		);
-        $repeater->add_control(
+        $this->add_control(
 			'vimeo',
 			[
 				'label' => __( 'Inser vimeo video link', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 				'condition'	=> [
 					'video_type'	=> '2',
 				],
 			]
 		);
-        $repeater->add_control(
+        $this->add_control(
 			'media_library',
 			[
 				'label' => __( 'Inser media library video link', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 				'condition'	=> [
 					'video_type'	=> '3',
 				],
 			]
 		);
-        
 		$this->add_control(
-			'galleries',
+			'poster',
 			[
-				'label' => esc_html__( 'Galleries', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
+				'label' => esc_html__( 'Choose Poster Image', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+				'condition'	=> [
+					'video_type'	=> '3',
+				],
 			]
 		);
-
 		$this->end_controls_section();
 
         // style
@@ -262,110 +204,101 @@ class VideoGallery extends Widget_Base
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+		$this->add_control(
+			'video_section_typography',
 			[
-				'name' => 'top_heading_typography',
-				'label' => __( 'Typography for top heading', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-top-heading',
+				'label' => __( 'Video section height', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '500px',
+				'selectors' => [
+					'{{WRAPPER}} .video-wrapper, .selfhosted-video, .video-block-img' => 'height: {{VALUE}} !important',
+				],
+			]
+		);
+
+		$this->add_control(
+			'play_main_typography',
+			[
+				'label' => __( 'Typography for Play button', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '70',
+				'selectors' => [
+					'{{WRAPPER}} .video-modal i, .popup-youtube i, .popup-vimeo i' => 'font-size: {{VALUE}}px',
+				],
 			]
 		);
         $this->add_control(
-			'top_heading_color',
+			'play_main_color',
 			[
-				'label' => __( 'Top Heading Color', 'msitheme' ),
+				'label' => __( 'Play button Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
+				'default' => '#EC5118',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .video-modal i, .popup-youtube i, .popup-vimeo i' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'play_video_typography',
+			[
+				'label' => __( 'Typography for Play video button', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '50',
+				'selectors' => [
+					'{{WRAPPER}} .play-pause-btn i' => 'font-size: {{VALUE}}px',
 				],
 			]
 		);
         $this->add_control(
-			'top_heading_border_color',
+			'play_video_color',
 			[
-				'label' => __( 'Top Heading Border Color', 'msitheme' ),
+				'label' => __( 'Play video button Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#AF1A15',
+				'default' => '#EC5118',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .play-pause-btn i' => 'color: {{VALUE}}',
 				],
 			]
 		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+		$this->add_control(
+			'close_typography',
 			[
-				'name' => 'heading_typography',
-				'label' => __( 'Typography for heading', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-heading',
+				'label' => __( 'Typography for close button', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '40',
+				'selectors' => [
+					'{{WRAPPER}} .video-modal-dismiss i' => 'font-size: {{VALUE}}px',
+				],
 			]
 		);
-
         $this->add_control(
-			'heading_color',
+			'close_color',
 			[
-				'label' => __( 'Heading Color', 'msitheme' ),
+				'label' => __( 'Close button Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
+				'default' => '#EC5118',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .video-modal-dismiss i' => 'color: {{VALUE}}',
 				],
 			]
 		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'link_typography',
-				'label' => __( 'Typography for link', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .video-item a',
-			]
-		);
-
-        $this->add_control(
-			'link_color',
-			[
-				'label' => __( 'Link Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .video-item a' => 'color: {{VALUE}}',
-				],
-			]
-		);
-
-        $this->add_control(
-			'link_hover_color',
-			[
-				'label' => __( 'Link Hover Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .video-item a:hover' => 'color: {{VALUE}}',
-				],
-			]
-		);
+        
 		$this->end_controls_section();
 	}
 
@@ -381,62 +314,60 @@ class VideoGallery extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-        if ( !empty($settings['galleries']) ) : ?>
+        ?>
 
             <!-- start of video gallery -->
-			<div class="video-galleries overflow-x-hidden">
-				<div class="video-gallery gallery-wrapper">
-					<?php 
-					$i = 0; 
-					foreach( $settings['galleries'] as $video ) : 
-						$i++; 
-						// $target = $video['btn_link']['is_external'] ? ' target="_blank"' : '';
-						// $nofollow = $video['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
-					?>
-						<div class="single-v-gallery relative v-gallery-<?php echo esc_attr( $i ); ?>">
-							<?php if( !empty($video['top_heading']) ) : ?>
-								<div class="v-gallery-top-heading absolute">
-									<h6 class="section-top-heading theme-border relative">
-										<?php echo esc_html( $video['top_heading'] ); ?>
-									</h6>
+			<div class="video-wrapper">
+				<div class="single-video-block flex justify-center align-center">
+					<?php if( $settings['video_type'] === '1' ) : ?>
+						<div class="video-item-youtube absolute">
+							<a class="popup-youtube" href="<?php echo esc_url( $settings['youtube'] ); ?>">
+								<i class="fa-solid fa-circle-play"></i>
+							</a>
+						</div>
+						<?php if( !empty($settings['image']) ) : ?>
+							<img class="video-block-img" src="<?php echo esc_url(wp_get_attachment_image_url( $settings['image']['id'], 'large' )); ?>" width="100%">
+						<?php endif; ?>
+					<?php endif; if( !empty($settings['vimeo']) ) : ?>
+						<div class="video-item-vimeo absolute">
+							<a class="popup-vimeo" href="<?php echo esc_url( $settings['vimeo'] ); ?>">
+								<i class="fa-solid fa-circle-play"></i>
+							</a>
+						</div>
+						<?php if( !empty($settings['image']) ) : ?>
+							<img class="video-block-img" src="<?php echo esc_url(wp_get_attachment_image_url( $settings['image']['id'], 'large' )); ?>" width="100%">
+						<?php endif; ?>
+					<?php endif; if( !empty($settings['media_library']) ) : ?>
+						<div class="selfhosted-video">
+							<a class="video-modal absolute" href="#media-video-open">
+								<i class="fa-solid fa-circle-play"></i>
+							</a>
+							<div class="video-item relative" id="media-video-open">
+								<video id="media-video" preload="auto" poster="<?php echo esc_url(wp_get_attachment_image_url( $settings['poster']['id'], 'large' )); ?>">
+									<source src="<?php echo esc_url( $settings['media_library'] ); ?>" type="video/mp4">
+								</video>
+								<div class="play-pause-btn absolute flex justify-between align-center">
+									<i onclick="playVid()" class="fa-solid fa-circle-play pointer"></i>
+									<i onclick="pauseVid()" class="fa-solid fa-circle-pause pointer"></i>
 								</div>
-							<?php endif; if( !empty($video['section_title']) ) : ?>
-								<h4 class="section-heading absolute"><?php echo wp_kses_post( $video['section_title'] ); ?></h4>
-							<?php endif;
-							if( $video['btn_type'] === '1' ) :
-								if( $video['video_type'] === '1' ) : ?>
-									<div class="video-item absolute">
-										<a class="popup-youtube" href="<?php echo esc_url( $video['youtube'] ); ?>">
-											<?php echo esc_html( $video['play_label'] ); ?>
-										</a>
-									</div>
-								<?php endif; if( !empty($video['vimeo']) ) : ?>
-									<div class="video-item absolute">
-										<a class="popup-vimeo" href="<?php echo esc_url( $video['vimeo'] ); ?>">
-											<?php echo esc_html( $video['play_label'] ); ?>
-										</a>
-									</div>
-								<?php endif; if( !empty($video['media_library']) ) : ?>
-									<div class="video-item absolute">
-										<a class="popup-media-v" href="<?php echo esc_url( $video['media_library'] ); ?>">
-											<?php echo esc_html( $video['play_label'] ); ?>
-										</a>
-									</div>
-								<?php endif; 
-							endif; 
-							if( $video['btn_type'] === '2' ) : ?>
-								<div class="video-item absolute">
-									<a class="readmore-btn theme-btn" href="<?php echo esc_url( $video['btn_link'] ); ?>">
-										<?php echo esc_html( $video['btn_label'] ); ?>
-									</a>
-								</div>
-							<?php endif; if( !empty($video['image']) ) : ?>
-								<img class="v-gallery-img" src="<?php echo esc_url(wp_get_attachment_image_url( $video['image']['id'], 'large' )); ?>">
+								<a class="video-modal-dismiss absolute" href="#"><i class="fa-solid fa-circle-xmark"></i></a>
+							</div>
+							<script> 
+								let vid = document.getElementById("media-video"); 
+								function playVid() { 
+									vid.play(); 
+								} 
+								function pauseVid() { 
+									vid.pause(); 
+								} 
+							</script> 
+							<?php if( !empty($settings['image']) ) : ?>
+								<img class="video-block-img" src="<?php echo esc_url(wp_get_attachment_image_url( $settings['image']['id'], 'large' )); ?>" width="100%">
 							<?php endif; ?>
 						</div>
-					<?php endforeach; ?>
+					<?php endif; ?>
 				</div>
             </div>
-    	<?php endif; 
+    	<?php 
     } 
 }
