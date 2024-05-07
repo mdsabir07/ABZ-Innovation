@@ -35,12 +35,25 @@ if (array_key_exists('header-logo', $page_meta)) {
 	$logo = '';
 }
 
+if (array_key_exists('header_type', $page_meta)) {
+	$header_type = $page_meta['header_type'];
+} else {
+	$header_type = '';
+}
+if ( $header_type === 'style2' ) {
+	$header_class = ' absolute-header absolute';
+} elseif( $header_type === 'style1' ) {
+	$header_class = ' fullwidth-header';
+} else {
+	$header_class = '';
+}
+
 
 ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'msitheme' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header<?php echo esc_attr( $header_class ); ?>">
 		<div class="container-default">
 			<div class="header-wrap flex justify-between align-center flexShrink">
 				<div class="site-branding">

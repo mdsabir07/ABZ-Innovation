@@ -316,6 +316,42 @@ class SocialShare extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'label' => __( 'Form field Border', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .social-links a',
+			]
+		);
+
+		$this->add_control(
+			'border_radius',
+			[
+				'label' => __( 'Form Field Border radius', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .social-links a' => 'border-radius: {{VALUE}} !important',
+				],
+			]
+		);
+
+		$this->add_control(
+			'gap',
+			[
+				'label' => __( 'Gap', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '5px',
+				'selectors' => [
+					'{{WRAPPER}} .social-links a' => 'gap: {{VALUE}} !important',
+				],
+			]
+		);
+
+		
 		$this->end_controls_section();
 	}
 

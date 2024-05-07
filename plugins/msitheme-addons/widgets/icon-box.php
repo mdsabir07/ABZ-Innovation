@@ -54,7 +54,7 @@ class IconBox extends Widget_Base
 	 */
 	public function get_icon()
 	{
-		return 'eicon-table-of-contents';
+		return 'eicon-icon-box';
 	}
 
 	/**
@@ -107,19 +107,31 @@ class IconBox extends Widget_Base
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __('Content', 'msitheme'),
+				'label' => __('Icon Content', 'msitheme'),
 			]
 		);
 
         $repeater = new \Elementor\Repeater();
 		$repeater->add_control(
+			'show_icon',
+			[
+				'label' => __( 'Show icon', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'yes',
+				'options' => [
+					'yes'	=> __( 'Yes', 'msitheme' ), 
+					'no'	=> __( 'No', 'msitheme' ), 
+				],
+			]
+		);
+		$repeater->add_control(
 			'icon',
 			[
 				'label' => esc_html__( 'Choose Image', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
-				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
-				]
+				'condition'	=> [
+					'show_icon'	=> 'yes',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -212,6 +224,39 @@ class IconBox extends Widget_Base
 				],
 			]
 		);
+
+		$this->add_control(
+			'heading_variation',
+			[
+				'label' => __( 'Heading Variation', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '125',
+				'selectors' => [
+					'{{WRAPPER}} .icon-heading' => 'font-variation-settings: "wdth" {{VALUE}}',
+				],
+			]
+		);
+
+		
+		$this->add_control(
+			'heading_margin',
+			[
+				'label' => esc_html__( 'Heading Margin', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .icon-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
         
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
@@ -248,6 +293,135 @@ class IconBox extends Widget_Base
 				],
 			]
 		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'label' => __( 'Icon Border', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .icon-box-img',
+			]
+		);
+
+		$this->add_control(
+			'border_radius',
+			[
+				'label' => __( 'Form Field Border radius', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'selectors' => [
+					'{{WRAPPER}} .icon-box-img' => 'border-radius: {{VALUE}} !important',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_padding',
+			[
+				'label' => esc_html__( 'Icon Padding', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .icon-box-img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'margin',
+			[
+				'label' => esc_html__( 'Icon Margin', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .icon-box-img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'content_align',
+			[
+				'label' => esc_html__( 'Content Alignment', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'flex' => [
+						'title' => esc_html__( 'Flex', 'msitheme' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'grid' => [
+						'title' => esc_html__( 'Grid', 'msitheme' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'block' => [
+						'title' => esc_html__( 'Block', 'msitheme' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'inline-block' => [
+						'title' => esc_html__( 'Inline-block', 'msitheme' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'default' => 'block',
+				'toggle' => true,
+				'selectors' => [
+					'{{WRAPPER}} .msitheme-icon-box' => 'display: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'verticle_align',
+			[
+				'label' => esc_html__( 'Verticle Alignment', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'start' => [
+						'title' => esc_html__( 'Start', 'msitheme' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'msitheme' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'end' => [
+						'title' => esc_html__( 'End', 'msitheme' ),
+						'icon' => 'eicon-text-align-right',
+					]
+				],
+				'default' => 'center',
+				'toggle' => true,
+				'selectors' => [
+					'{{WRAPPER}} .msitheme-icon-box' => 'align-items: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'gap',
+			[
+				'label' => __( 'Content gap', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'default' => '15px',
+				'selectors' => [
+					'{{WRAPPER}} .msitheme-icon-box' => 'gap: {{VALUE}} !important;',
+				],
+			]
+		);
 		$this->end_controls_section();
 	}
 
@@ -268,9 +442,9 @@ class IconBox extends Widget_Base
             <!-- start of icon box -->
             <div class="msitheme-icon-box">
                 <?php foreach ( $settings['icons']  as $icon ) : ?>
-					<?php if( !empty( $icon['icon'] ) ) : ?>
+					<?php if($icon['show_icon'] === 'yes') :   if( !empty( $icon['icon'] ) ) : ?>
 						<img class="icon-box-img" src="<?php echo esc_url(wp_get_attachment_image_url( $icon['icon']['id'] )); ?>">
-					<?php endif; if( !empty( $icon['heading'] ) ) : ?>
+					<?php endif; endif; if( !empty( $icon['heading'] ) ) : ?>
                     	<div class="icon-heading">
 							<?php echo wp_kses_post( $icon['heading'] ); ?>
 						</div>

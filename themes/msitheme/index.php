@@ -17,14 +17,14 @@ get_header();
 
 	<main id="primary" class="site-main">
 		<div class="container-default">
-			<div class="section-title">
+			<!-- <div class="section-title">
 				<h6 class="theme-border section-top-heading relative clrWhite upercase">
-					<?php esc_html_e( 'reach the sky', 'msitheme' ); ?>
+					<?php //esc_html_e( 'reach the sky', 'msitheme' ); ?>
 				</h6>
 				<h2 class="clrWhite upercase">
-					<?php esc_html_e( 'News', 'msitheme' ); ?>
+					<?php //esc_html_e( 'News', 'msitheme' ); ?>
 				</h2>
-			</div>
+			</div> -->
 			<?php if ( ! wp_is_mobile() ) : echo do_shortcode( '[featured_post]' ); endif; ?>
 			<?php
 			if ( have_posts() ) :

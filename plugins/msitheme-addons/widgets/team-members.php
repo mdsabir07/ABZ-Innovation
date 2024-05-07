@@ -98,19 +98,8 @@ class TeamMembers extends Widget_Base {
 				'label' => __( 'Team member content', 'msitheme' ),
 			]
 		);
-		
-        $this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'background',
-				'label' => esc_html__( 'Background', 'msitheme' ),
-				'types' => [ 'classic', 'gradient', 'video' ],
-				'selector' => '{{WRAPPER}} .msitheme-news-wrap',
-			]
-		);
 
-        $repeater = new \Elementor\Repeater();
-        $repeater->add_control(
+		$this->add_control(
 			'image',
 			[
 				'label' => esc_html__( 'Choose Image', 'textdomain' ),
@@ -120,31 +109,32 @@ class TeamMembers extends Widget_Base {
 				]
 			]
 		);
-
-		$repeater->add_control(
-			'section_title',
+		$this->add_group_control(
+			\Elementor\Group_Control_Image_Size::get_type(),
 			[
-				'label' => __( 'Name part 1', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'show_label' => true,
+				'name' => 'thumbnail', 
+				'exclude' => [],
+				'include' => [],
+				'default' => 'large',
 			]
 		);
 
-		$repeater->add_control(
-			'section_title2',
+		$this->add_control(
+			'name',
 			[
-				'label' => __( 'Name part 2', 'msitheme' ),
+				'label' => __( 'Name', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 			]
 		);
 
-        $repeater->add_control(
-			'section_title_tag',
+        $this->add_control(
+			'name_tag',
 			[
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'label' => esc_html__( 'HTML tag', 'msitheme' ),
-				'default' => 'h2',
+				'label' => esc_html__( 'HTML tag for name', 'msitheme' ),
+				'default' => 'h3',
 				'options' => [
 					'h1' => esc_html__( 'H1', 'msitheme' ),
 					'h2' => esc_html__( 'H2', 'msitheme' ),
@@ -159,36 +149,25 @@ class TeamMembers extends Widget_Base {
 			]
 		);
 
-        $repeater->add_control(
-			'top_heading',
+		$this->add_control(
+			'desig',
 			[
 				'label' => __( 'Designation', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 			]
 		);
 
-		$repeater->add_control(
-			'top_heading_border',
+		$this->add_control(
+			'desc',
 			[
-				'label' => __( 'Designation border?', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'yes',
-				'options' => [
-					'yes'	=> __( 'Yes', 'msitheme' ), 
-					'no'	=> __( 'No', 'msitheme' ), 
-				]
+				'label' => __( 'Description', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'show_label' => true,
 			]
 		);
 
-        $this->add_control(
-			'members',
-			[
-				'label' => esc_html__( 'Member box', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-			]
-		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -202,101 +181,85 @@ class TeamMembers extends Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'section_heading_typography',
-				'label' => __( 'Typography for name part 1', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-heading .name-part1',
+				'name' => 'name_typography',
+				'label' => __( 'Typography for name', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .section-heading',
 			]
 		);
 
         $this->add_control(
-			'name1_color',
+			'name_color',
 			[
-				'label' => __( 'Name part 1 Color', 'msitheme' ),
+				'label' => __( 'Name Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#FFF',
+				'default' => '#282929',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-heading .name-part1' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .section-heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
-
-        
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+		$this->add_control(
+			'name_variation',
 			[
-				'name' => 'name2_typography',
-				'label' => __( 'Typography for name part 2', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-heading .name-part2',
-			]
-		);
-        $this->add_control(
-			'name2_color',
-			[
-				'label' => __( 'Name part 2 Color', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#AF1A15',
-				'scheme' => [
-					'type' => \Elementor\Core\Schemes\Color::get_type(),
-					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-				],
+				'label' => __( 'Font Variation for name', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '125',
 				'selectors' => [
-					'{{WRAPPER}} .section-heading .name-part2' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .section-heading' => 'font-variation-settings: "wdth" {{VALUE}}',
 				],
 			]
 		);
 
-        
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'top_heading_typography',
+				'name' => 'designation_typography',
 				'label' => __( 'Typography for designation', 'msitheme' ),
-				'selector' => '{{WRAPPER}} .section-top-heading',
+				'selector' => '{{WRAPPER}} .team-designation',
 			]
 		);
 
         $this->add_control(
-			'top_heading_color',
+			'designation_color',
 			[
 				'label' => __( 'Designation Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#B1DEE3',
+				'default' => '#282929',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .team-designation' => 'color: {{VALUE}}',
 				],
 			]
 		);
-        $this->add_control(
-			'top_heading_border_color',
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'label' => __( 'Designation border Color', 'msitheme' ),
+				'name' => 'desc_typography',
+				'label' => __( 'Typography for description', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .team-description',
+			]
+		);
+
+        $this->add_control(
+			'desc_color',
+			[
+				'label' => __( 'Description Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'default' => '#fff',
+				'default' => '#282929',
 				'scheme' => [
 					'type' => \Elementor\Core\Schemes\Color::get_type(),
 					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before, .section-top-heading::after' => 'background: {{VALUE}}',
-				],
-			]
-		);
-        $this->add_control(
-			'top_heading_border_width',
-			[
-				'label' => __( 'Designation Border width', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '100',
-				'selectors' => [
-					'{{WRAPPER}} .section-top-heading::before' => 'width: {{VALUE}}%',
+					'{{WRAPPER}} .team-description' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -315,50 +278,35 @@ class TeamMembers extends Widget_Base {
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-
-		if ( !empty( $settings['members'] ) ) :
 		?>
-            <div class="team-member-wrapper">
-                <div class="team-member-inner grid">
-                    <?php foreach ( $settings['members'] as $member ) : ?>
-                        <div class="team-member-box">
-                            <?php if ( !empty($member['image']) ) : ?>
-                                <div class="team-member-img">
-                                    <img class="member-img" src="<?php echo esc_url(wp_get_attachment_image_url( $member['image']['id'], 'large' )); ?>">
-                                </div>
-                            <?php endif; ?>
-                            <div class="section-title-wrap team-member-content">
-                                <<?php echo esc_attr( $member['section_title_tag'] ); ?> class="section-heading">
-                                    <?php if( !empty($member['section_title']) ) : ?>
-                                        <span class="name-part1"><?php echo esc_html( $member['section_title'] ); ?></span>
-                                    <?php endif; if( !empty($member['section_title']) ) : ?>
-                                        <span class="name-part2"><?php echo esc_html( $member['section_title2'] ); ?></span>
-                                    <?php endif; ?>
-                                </<?php echo esc_attr( $member['section_title_tag'] ); ?>>
-                                <?php 
-                                if ( !empty($member['top_heading']) ) : 
-                                    if ( $member['top_heading_border'] === 'yes' ) :
-                                        $border = ' theme-border relative';
-                                    else : 
-                                        $border = '';
-                                    endif;
-                                ?>
-                                    <h6 class="section-top-heading<?php echo esc_attr( $border ); ?>">
-                                        <?php echo esc_html( $member['top_heading'] ); ?>
-                                    </h6>
-                                <?php endif; if( !empty($member['section_title']) ) : ?>
-                                    <<?php echo esc_attr( $member['section_title_tag'] ); ?> class="section-heading">
-                                        <?php echo wp_kses_post( $member['section_title'] ); ?>
-                                    </<?php echo esc_attr( $member['section_title_tag'] ); ?>>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+		<div class="team-member-wrap">
+			<div class="team-member-box relative">
+				<?php if( !empty($settings['desc']) ) : ?>
+					<div class="team-description absolute top-0">
+						<?php echo wp_kses_post( $settings['desc'] ); ?>
+					</div>
+				<?php endif; if ( !empty($settings['image']) ) : ?>
+					<div class="team-member-img">
+						<?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html( $settings, 'large', 'image' ); ?>
+					</div>
+				<?php endif; ?>
+				<div class="team-member-content absolute bottom-0">
+					<<?php echo esc_attr( $settings['name_tag'] ); ?> class="section-heading">
+						<?php if( !empty($settings['name']) ) : ?>
+							<?php echo esc_html( $settings['name'] ); ?>
+						<?php endif; ?>
+					</<?php echo esc_attr( $settings['name_tag'] ); ?>>
+
+					<?php if( !empty($settings['desig']) ) : ?>
+						<div class="team-designation">
+							<?php echo esc_html( $settings['desig'] ); ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
             		
 		<?php
-        endif;
 	}
 
 }

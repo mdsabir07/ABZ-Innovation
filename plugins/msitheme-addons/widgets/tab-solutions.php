@@ -975,7 +975,7 @@ class TabSolutions extends Widget_Base {
 					</ul>
                 <?php endif; ?>
                 
-                <?php if ( !empty( $settings['inner_tabs1'] ) ) : ?>
+                <?php if ( !empty( $settings['inner_content1'] ) ) : ?>
                     <div class="content1-solutions">
 						<div class="tabbed-solution-inner1">
 							<div class="tab-inner-right">
@@ -996,7 +996,7 @@ class TabSolutions extends Widget_Base {
 										<?php endforeach; ?>
 									</ul>
 								<?php endif; ?>
-								<?php if ( !empty( $settings['inner_content1'] ) ) : foreach ( $settings['inner_content1'] as $inner_cont ) : ?>
+								<?php foreach ( $settings['inner_content1'] as $inner_cont ) : ?>
 									<div class="content1-inner-solutions content12-inner-solutions">
 										<div class="single-solutions-content1">
 											<?php if ( !empty( $inner_cont['image1'] ) ) : ?>
@@ -1101,27 +1101,25 @@ class TabSolutions extends Widget_Base {
 											</div>
 										</div>
 									</div>
-								<?php endforeach; endif; ?>
+								<?php endforeach; ?>
 							</div>
 						</div> <!-- tabbed-inner -->
-                        
                     </div>
                 <?php endif; ?>
                 
-                <?php if ( !empty( $settings['inner_tabs12'] ) ) : ?>
+                <?php if ( !empty( $settings['inner_content2'] ) ) : ?>
                     <div class="content1-solutions content2-solutions">
 						<div class="tabbed-solution-inner1">
 							<div class="tab-inner-right">
 								<input type="radio" id="solution-tab-inner12" name="css-tabs-inner2" checked>
 								<input type="radio" id="solution-tab-inner22" name="css-tabs-inner2">
 								<input type="radio" id="solution-tab-inner32" name="css-tabs-inner2">
-
 								<?php if ( !empty( $settings['inner_tabs12'] ) ) : ?>
 									<ul class="solution-tabs-inner1 solution-tabs-inner12 list-unstyled flex justify-end f-gap-10 align-center">
 										<?php $i = 0; foreach ( $settings['inner_tabs12'] as $tab ) : $i++; ?>
 											<?php if ( !empty( $tab['inner_label12'] ) ) : ?>
 												<li class="solution-tab-inner pointer">
-													<label for="solution-tab-inner<?php echo esc_attr( $i ); ?>">
+													<label for="solution-tab-inner<?php echo esc_attr( $i ); ?>2">
 														<?php echo esc_html( $tab['inner_label12'] ); ?>
 													</label>
 												</li>

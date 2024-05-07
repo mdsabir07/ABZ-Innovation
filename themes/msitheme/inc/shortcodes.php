@@ -25,7 +25,7 @@ function msitheme_featured_post_shortcode( $atts ) {
 
             $post_id = get_the_ID();
             $title = get_the_title( $post_id );
-            $excerpt = word_count( get_the_excerpt( $post_id ), '20' );
+            $excerpt = word_count( get_the_excerpt( $post_id ), '35' );
 
         ?>
 
@@ -36,7 +36,12 @@ function msitheme_featured_post_shortcode( $atts ) {
 
                 <div class="featured-post-content absolute">
                     <div class="post-inner-content theme-border relative">
-                        <h4><?php echo esc_html( $title ); ?></h4>
+                        <div class="featured-recent-post-heading">
+                            <?php esc_html_e( 'Most recent article', 'msitheme' ); ?>
+                        </div>
+                        <h4>
+                            <?php echo esc_html( $title ); ?>
+                        </h4>
                         <div class="featured-post-excerpt">
                             <?php echo wp_kses_post( $excerpt ); ?>
                         </div>
@@ -71,18 +76,18 @@ function msitheme_popular_post_shortcode( $atts ) {
         'post_status'	=> 'publish',
     ));
     ?>
-    <div class="msitheme-news-wrap">
+    <div class="msitheme-news-wrap related-post">
         <div class="container-default">
             <div class="section-title">
-                <h6 class="theme-border relative uppercase lh-18 fz-18">
+                <h6 class="theme-border relative uppercase lh-28 fz-18">
                     <?php esc_html_e( 'learn to fly', 'msitheme' ); ?>
                 </h6>
-                <h3 class="uppercase lh-48 fz-48">
+                <h3 class="uppercase lh-57 fz-48 fontVariation">
                     <?php esc_html_e( 'recommended', 'msitheme' ); ?>
                 </h3>
             </div>
 
-            <div class="news-posts grid grid-3 g-gap-25">
+            <div class="blog-page grid grid-3 g-gap-25">
                 <?php 
                 while($q->have_posts()) : $q->the_post(); 
                     $post_id = get_the_ID(); 
@@ -99,7 +104,7 @@ function msitheme_popular_post_shortcode( $atts ) {
                         $post_extra_img = '';
                     }
                 ?>
-                    <div class="single-news-post theme-border">
+                    <article id="post-<?php echo esc_attr( $post_id ); ?>" class="post popular-post">
                         <div class="entry-media">
                             <?php if(has_post_thumbnail( $post_id )) :
                                 if ( !empty($msitheme_meta['post_extra_img']) ) : ?>
@@ -115,14 +120,14 @@ function msitheme_popular_post_shortcode( $atts ) {
                         </div>
 
                         <div class="entry-details">
-                            <h4 class="entry-title">
+                            <h4 class="entry-title fz-18 lh-27 uppercase">
                                 <a href="<?php echo the_permalink($post_id); ?>">
                                     <?php esc_html( the_title() ); ?>
                                 </a>
                             </h4>
-                            <p class="excerpt"><?php echo esc_html( $excerpt ); ?></p>
+                            <div class="entry-content"><?php echo esc_html( $excerpt ); ?></div>
                         </div>
-                    </div>
+                    </article>
                 <?php endwhile; ?>
             </div>
         </div>

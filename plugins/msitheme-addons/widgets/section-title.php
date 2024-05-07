@@ -118,6 +118,7 @@ class SectionTitle extends Widget_Base {
 				'label' => __( 'Top heading', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'show_label' => true,
+				'label_block'	=> true,
 				'condition'	=> [
 					'show_top_heading'	=> 'yes',
 				],
@@ -234,6 +235,18 @@ class SectionTitle extends Widget_Base {
 				],
 			]
 		);
+		
+        $this->add_control(
+			'top_heading_variation',
+			[
+				'label' => __( 'Top Heading Variation', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				// 'show_label' => true,
+				'selectors' => [
+					'{{WRAPPER}} .section-top-heading' => 'font-variation-settings: "wdth" {{VALUE}}',
+				],
+			]
+		);
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
@@ -280,6 +293,26 @@ class SectionTitle extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'margin',
+			[
+				'label' => esc_html__( 'Heading Margin', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		
 		$this->end_controls_section();
 	}
@@ -309,8 +342,6 @@ class SectionTitle extends Widget_Base {
                     </<?php echo esc_attr( $settings['section_title_tag'] ); ?>>
                 <?php endif; ?>
             </div>
-
-						
 		<?php
 	}
 

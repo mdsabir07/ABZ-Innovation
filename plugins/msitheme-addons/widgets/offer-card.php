@@ -46,7 +46,7 @@ class OfferCard extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-user-circle-o';
+		return 'eicon-menu-card';
 	}
 
 	/**

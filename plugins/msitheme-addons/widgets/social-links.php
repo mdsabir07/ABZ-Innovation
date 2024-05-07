@@ -221,7 +221,7 @@ class SocialLinks extends Widget_Base
 		?>
 			<div class="footer-socials social-icons flex align-center">
                 <?php foreach ( $settings['socials'] as $socail ) : if ( !empty( $socail['link']) ) : ?>
-                    <a target="_blank" href="<?php echo esc_url( $socail['link'] ); ?>" class="facebook">
+                    <a target="_blank" href="<?php echo esc_url( $socail['link'] ); ?>" class="<?php echo esc_attr( $socail['social'] ); ?>">
                         <i class="fa-brands <?php echo esc_attr( $socail['social'] ); ?>"></i>
                     </a>
                 <?php endif; endforeach; ?>

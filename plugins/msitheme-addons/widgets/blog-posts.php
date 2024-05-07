@@ -146,21 +146,6 @@ class Blogs extends Widget_Base {
 				],
 			]
 		);
-		$this->add_control(
-			'top_heading_border',
-			[
-				'label' => __( 'Top heading border?', 'msitheme' ),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'yes',
-				'options' => [
-					'yes'	=> __( 'Yes', 'msitheme' ), 
-					'no'	=> __( 'No', 'msitheme' ), 
-				],
-				'condition'	=> [
-					'show_top_heading'	=> 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_section_title',
@@ -184,6 +169,45 @@ class Blogs extends Widget_Base {
 				'condition'	=> [
 					'show_section_title'	=> 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'btn_label',
+			[
+				'label'	=> __( 'Button label', 'msitheme' ),
+				'type'	=> Controls_Manager::TEXT,
+				'label_block'	=> true,
+			]
+		);
+
+		$this->add_control(
+			'btn_link',
+			[
+				'label' => esc_html__( 'Button Link', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://domain-link.com', 'msitheme' ),
+				'show_external' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+			]
+		);
+		
+		$this->add_control(
+			'button_type',
+			[
+				'label' => esc_html__( 'Button type', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => '3',
+				'options' => [
+					'1' => esc_html__( 'Filled button', 'msitheme' ),
+					'2' => esc_html__( 'Bordered button', 'msitheme' ),
+					'3' => esc_html__( 'Icon button', 'msitheme' ),
+				]
+		
 			]
 		);
 
@@ -348,7 +372,7 @@ class Blogs extends Widget_Base {
         $this->add_control(
 			'top_heading_color',
 			[
-				'label' => __( 'TOp Heading Color', 'msitheme' ),
+				'label' => __( 'Top Heading Color', 'msitheme' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#B1DEE3',
 				'scheme' => [
@@ -357,6 +381,17 @@ class Blogs extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .section-title h6' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'top_heading_variation',
+			[
+				'label' => __( 'Top Heading Variation (example: 125)', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'selectors' => [
+					'{{WRAPPER}} .section-title h6' => 'font-variation-settings: "wdth" {{VALUE}}',
 				],
 			]
 		);
@@ -382,6 +417,186 @@ class Blogs extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .section-title h3' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'section_heading_variation',
+			[
+				'label' => __( 'Section Heading Variation (example: 125)', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'selectors' => [
+					'{{WRAPPER}} .section-title h3' => 'font-variation-settings: "wdth" {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'button_typography',
+				'label' => __('Typography for button', 'msitheme'),
+				'selector' => '{{WRAPPER}} .section-title .theme-btn',
+			]
+		);
+		$this->add_control(
+			'button_color',
+			[
+				'label' => __('Button Color', 'msitheme'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'btn_bg_color',
+			[
+				'label' => __('Button background Color', 'msitheme'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#F25119',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_color',
+			[
+				'label' => __( 'Button hover Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_bg',
+			[
+				'label' => __( 'Button hover background Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#DA4711',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn:hover' => 'background: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_border',
+			[
+				'label' => __( 'Button border Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'button_hover_border',
+			[
+				'label' => __( 'Button hover border Color', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#F25119',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn:hover' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'icon_typography',
+				'label' => __('Typography for button icon', 'msitheme'),
+				'selector' => '{{WRAPPER}} .section-title .theme-btn i',
+			]
+		);
+		$this->add_control(
+			'icon_color',
+			[
+				'label' => __('Button Icon Color', 'msitheme'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn i' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'icon_hover_border_color',
+			[
+				'label' => __('Button Icon hover border Color', 'msitheme'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'scheme' => [
+					'type' => \Elementor\Core\Schemes\Color::get_type(),
+					'value' => \Elementor\Core\Schemes\Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn:hover i' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'icon_border_width',
+			[
+				'label' => __('Button Icon border width', 'msitheme'),
+				'type'	=> Controls_Manager::TEXT,
+				'default' => '2',
+				'label_block'	=> true,
+				'selectors' => [
+					'{{WRAPPER}} .section-title .theme-btn i' => 'border-width: {{VALUE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'margin',
+			[
+				'label' => esc_html__( 'Section heading Margin', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .section-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -479,27 +694,52 @@ class Blogs extends Widget_Base {
 			<div class="msitheme-news-wrap">
                 <div class="container-default">
                     <?php if($settings['show_section_title'] === 'yes') : ?>
-                        <div class="section-title">
-                            <?php if($settings['show_top_heading'] === 'yes') : 
-								if ( !empty($settings['top_heading']) ) : 
-									if ( $settings['top_heading_border'] === 'yes' ) :
-										$border = 'theme-border relative';
-									else : 
-										$border = '';
-									endif;
-							?>
-                                <h6 class="<?php echo esc_attr( $border ); ?>">
-									<?php echo esc_html( $settings['top_heading'] ); ?>
-								</h6>
-                            <?php endif; endif; if ( !empty($settings['section_title']) ) : ?>
-								<h3>
-									<?php echo esc_html( $settings['section_title'] ); ?>
-								</h3>
+                        <div class="section-title flex justify-between align-center">
+							<div class="blog-section-heading">
+								<?php if($settings['show_top_heading'] === 'yes') : 
+									if ( !empty($settings['top_heading']) ) : 
+										if ( $settings['top_heading_border'] === 'yes' ) :
+											$border = 'theme-border relative';
+										else : 
+											$border = '';
+										endif;
+								?>
+									<h6 class="<?php echo esc_attr( $border ); ?>">
+										<?php echo esc_html( $settings['top_heading'] ); ?>
+									</h6>
+								<?php endif; endif; if ( !empty($settings['section_title']) ) : ?>
+									<h3>
+										<?php echo esc_html( $settings['section_title'] ); ?>
+									</h3>
+								<?php endif; ?>
+							</div>
+							<?php if ( !empty( $settings['btn_label'] ) ) : 
+
+								$target = $settings['btn_link']['is_external'] ? ' target="_blank"' : '';
+								$nofollow = $settings['btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+
+								if ( $settings['button_type'] === '1' ) :
+									$btn_class = 'filled-btn';
+								elseif ( $settings['button_type'] === '2' ) :
+									$btn_class = 'bordered-btn';
+								else : 
+									$btn_class = 'bordered-btn icon-btn';
+								endif;
+
+								?>
+								<a href="<?php echo esc_url( $settings['btn_link']['url'] ); ?>" class="theme-btn <?php echo esc_attr( $btn_class ); ?>" <?php echo esc_attr( $target ); ?> <?php echo esc_attr( $nofollow ); ?>>
+									<span class="btn-label">
+										<?php echo esc_html( $settings['btn_label'] ); ?>
+									</span> 
+									<?php if ( $settings['button_type'] === '3' ) : ?>
+										<i class="fa-solid fa-arrow-right"></i>
+									<?php endif; ?>
+								</a>
 							<?php endif; ?>
                         </div>
                     <?php endif; ?>
 
-                    <div class="news-posts grid grid-3 g-gap-25">
+                    <div class="blog-page news-posts g-gap-25">
                         <?php 
                         while($q->have_posts()) : $q->the_post(); 
                             $post_id = get_the_ID(); 
@@ -523,7 +763,7 @@ class Blogs extends Widget_Base {
                                 $post_extra_img = '';
                             }
                         ?>
-                            <div class="single-news-post theme-border">
+                            <article id="post-<?php echo esc_attr( $post_id ); ?>" class="post single-news-post">
                                 <?php if($settings['show_img'] === 'yes') : ?>
                                     <div class="entry-media">
                                         <?php if(has_post_thumbnail( $post_id )) :
@@ -545,17 +785,17 @@ class Blogs extends Widget_Base {
 
                                 <div class="entry-details">
                                     <?php if($settings['show_title'] === 'yes') : ?>
-                                        <h4 class="entry-title">
+                                        <h4 class="entry-title fz-18 lh-27 uppercase">
                                             <a href="<?php echo the_permalink(); ?>">
                                                 <?php esc_html( the_title() ); ?>
                                             </a>
                                         </h4>
                                     <?php endif; ?>
                                     <?php if($settings['show_excerpt'] === 'yes') : ?>
-                                        <p class="excerpt"><?php echo esc_html( $excerpt ); ?></p>
+                                        <div class="entry-content"><?php echo esc_html( $excerpt ); ?></div>
                                     <?php endif; ?>
                                 </div>
-                            </div>
+                            </article>
                         <?php endwhile; ?>
                     </div>
                 </div>

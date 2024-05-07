@@ -217,6 +217,27 @@ class VideoGallery extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'label' => __( 'Border', 'msitheme' ),
+				'selector' => '{{WRAPPER}} .video-wrapper, .selfhosted-video, .video-block-img',
+			]
+		);
+
+		$this->add_control(
+			'border_radius',
+			[
+				'label' => __( 'Border radius', 'msitheme' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'show_label' => true,
+				'selectors' => [
+					'{{WRAPPER}} .video-wrapper, .selfhosted-video, .video-block-img' => 'border-radius: {{VALUE}} !important',
+				],
+			]
+		);
+
 		$this->add_control(
 			'play_main_typography',
 			[

@@ -72,7 +72,7 @@ if(array_key_exists('post_extra_img', $msitheme_meta)) {
 			)
 		);
 		else : 
-			echo word_count(get_the_excerpt(), '12');
+			echo word_count(get_the_excerpt(), '20');
 		endif;
 
 		wp_link_pages(

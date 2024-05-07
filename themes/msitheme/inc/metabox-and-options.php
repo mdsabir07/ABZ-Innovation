@@ -26,11 +26,6 @@ if (class_exists('CSF')) {
         'icon'   => 'fas fa-file-code',
 		'fields' => array(
 			// A text field
-			// array(
-			// 	'id' => 'language',
-			// 	'type' => 'wp_editor',
-			// 	'title' => esc_html__('Insert language shortcode', 'msitheme'),
-			// ),
 			
 			array(
 				'id' => 'header_button',
@@ -99,47 +94,182 @@ if (class_exists('CSF')) {
 			),
 		)
 	));
+	
 	CSF::createSection($msitheme_options_prefix, array(
 		'parent' => 'footer-options',
         'title'  => esc_html__('Social media', 'msitheme'),
         'icon'   => 'fas fa-file-code',
 		'fields' => array(
 			// A text field
+			array(
+				'id' => 'social_head',
+				'type' => 'text',
+				'title' => esc_html__('Type social heading', 'msitheme'),
+			),
+			array(
+				'id'          => 'social_style',
+				'type'        => 'select',
+				'title'       => 'Social style',
+				'placeholder' => 'Select social style',
+				'options'     => array(
+					'style1'  => 'Style 1',
+					'style2'  => 'Style 2',
+				),
+				'default'     => 'style1'
+			),
+			// style 1
+			array(
+				'id' => 'facebook_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert facebook label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'facebook_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert facebook link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
 			
+			array(
+				'id' => 'linkedin_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert linkedin label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'linkedin_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert linkedin link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			
+			array(
+				'id' => 'instagram_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert instagram label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'instagram_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert instagram link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			
+			array(
+				'id' => 'twitter_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert twitter label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'twitter_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert twitter link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			
+			array(
+				'id' => 'tiktok_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert tiktok label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'tiktok_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert tiktok link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			
+			array(
+				'id' => 'youtube_label',
+				'type' => 'text',
+				'title' => esc_html__('Insert youtube label', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+			array(
+				'id' => 'youtube_link',
+				'type' => 'text',
+				'title' => esc_html__('Insert youtube link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style1' ),
+			),
+
+			// style 2
 			array(
 				'id' => 'facebook',
 				'type' => 'text',
 				'title' => esc_html__('Insert facebook link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
 			),
 			
 			array(
 				'id' => 'linkedin',
 				'type' => 'text',
 				'title' => esc_html__('Insert linkedin link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
 			),
 			
 			array(
 				'id' => 'instagram',
 				'type' => 'text',
 				'title' => esc_html__('Insert instagram link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
 			),
 			
 			array(
 				'id' => 'twitter',
 				'type' => 'text',
 				'title' => esc_html__('Insert twitter link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
 			),
 			
 			array(
 				'id' => 'tiktok',
 				'type' => 'text',
 				'title' => esc_html__('Insert tiktok link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
 			),
 			
 			array(
 				'id' => 'youtube',
 				'type' => 'text',
 				'title' => esc_html__('Insert youtube link', 'msitheme'),
+				'dependency' => array( 'social_style', '==', 'style2' ),
+			),
+			array(
+				'id'      => 'social_typo',
+				'type'    => 'typography',
+				'title'   => 'Social Typography',
+				'output'  => '.social-links a, footer-socials a',
+				'default' => array(
+					'color'          => '#282929',
+					'font-family'    => 'Archivo',
+					'font-size'      => '16',
+					'line-height'    => '24',
+					'letter-spacing' => '',
+					'text-align'     => 'center',
+					'text-transform' => 'Capitalize',
+					'subset'         => 'latin-ext',
+					'type'           => 'google',
+					'unit'           => 'px',
+				),
+			),
+			array(
+				'id'      => 'social_border',
+				'type'    => 'border',
+				'title'   => 'Social Border',
+				'output'  => '.social-links a, footer-socials a',
+				'default' => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+					'style'  => '',
+					'color'  => '#1e73be',
+					'unit'   => 'px',
+				),
 			),
 		)
 	));
@@ -271,6 +401,77 @@ if (class_exists('CSF')) {
 	// Create a section
 	CSF::createSection($msitheme_metabox_prefix, array(
 		'fields' => array(
+			
+			array(
+				'id'          => 'header_type',
+				'type'        => 'select',
+				'title'       => 'Heady type',
+				'placeholder' => 'Select Heady type',
+				'options'     => array(
+					'style1'  => 'Full width',
+					'style2'  => 'Box',
+				),
+				'default'     => 'style1'
+			),
+			array(
+				'id'                              => 'absolute_header_bg',
+				'type'                            => 'background',
+				'title'                           => 'Header Background',
+				// 'background_image'             => true,
+				'background_origin'               => true,
+  				'background_clip'                 => true,
+				'background_gradient'             => true,
+				'background_blend_mode'           => true,
+				'background_image_preview'           => true,
+				'output'           => '.absolute-header .header-wrap',
+				'default'                         => array(
+					'background-color'              => '',
+					'background-gradient-color'     => '',
+					'background-gradient-direction' => 'right to left',
+					'background-size'               => 'cover',
+					'background-position'           => 'center center',
+					'background-repeat'             => 'repeat',
+				),
+				'dependency' => array( 'header_type', '==', 'style2' ),
+			),
+			array(
+				'id'          => 'absolute_header_padding',
+				'type'        => 'spacing',
+				'title'       => 'Header Padding',
+				'output'      => '.absolute-header .header-wrap',
+				'output_mode' => 'padding', // or margin, relative
+				'default'     => array(
+					'top'       => '5',
+					'right'     => '5',
+					'bottom'    => '5',
+					'left'      => '15',
+					'unit'      => 'px',
+				),
+				'dependency' => array( 'header_type', '==', 'style2' ),
+			),
+			array(
+				'id'      => 'absolute_header_border',
+				'type'    => 'border',
+				'title'   => 'Border',
+				'output'  => '.absolute-header .header-wrap',
+				'default' => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+					'style'  => '',
+					'color'  => '#1e73be',
+					'unit'   => 'px',
+				),
+				'dependency' => array( 'header_type', '==', 'style2' ),
+			),
+			array(
+				'id' => 'absolute_header_border_radius',
+				'type' => 'text',
+				'title' => esc_html__('Header border redius', 'msitheme'),
+				'output'  => array(	'border-radius' => '.absolute-header .header-wrap' ),
+				'dependency' => array( 'header_type', '==', 'style2' ),
+			),
 			array(
 				'id'                              => 'header_bg',
 				'type'                            => 'background',
@@ -279,7 +480,7 @@ if (class_exists('CSF')) {
 				'background_gradient'             => true,
 				'background_blend_mode'           => true,
 				'background_image_preview'           => true,
-				'output'           => '.site-header',
+				'output'           => '.fullwidth-header',
 				'default'                         => array(
 					'background-color'              => '#282929',
 					'background-gradient-color'     => '#555',
@@ -287,7 +488,8 @@ if (class_exists('CSF')) {
 					'background-size'               => 'cover',
 					'background-position'           => 'center center',
 					'background-repeat'             => 'repeat',
-				)
+				),
+				'dependency' => array( 'header_type', '==', 'style1' ),
 			),
 			// changing header menu color as per the page
 			array(
@@ -296,7 +498,7 @@ if (class_exists('CSF')) {
 				'title'  => 'Change Header Menu Color',
 				'output' => array( 
 					'color' => '.main-navigation ul li a, .header-btn .theme-btn, .header-right-content .languages', 
-					'border-color' => '.main-navigation ul ul li, .site-header .header-wrap, .header-btn .bordered-btn', 
+					'border-color' => '.main-navigation ul ul li, .header-btn .bordered-btn', 
 					'background' => '.main-navigation ul ul li::before' 
 				)
 			),
@@ -305,6 +507,12 @@ if (class_exists('CSF')) {
 				'type'   => 'color',
 				'title'  => 'Change Header Dropdown Menu Background Color',
 				'output' => array( 'background' => '.main-navigation ul ul' )
+			),
+			array(
+				'id'     => 'header_btn_color',
+				'type'   => 'color',
+				'title'  => 'Change Header button Color',
+				'output' => array( 'color' => '.header-btn .theme-btn' )
 			),
 			array(
 				'id'      => 'header-logo',

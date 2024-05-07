@@ -12,16 +12,21 @@ use MsiThemeEssentialAddons\Widgets\JoinDistribute;
 use MsiThemeEssentialAddons\Widgets\BorderHeading;
 use MsiThemeEssentialAddons\Widgets\VideoGallery;
 use MsiThemeEssentialAddons\Widgets\IconBox;
+use MsiThemeEssentialAddons\Widgets\BookingDemo;
+use MsiThemeEssentialAddons\Widgets\ContactForm;
+use MsiThemeEssentialAddons\Widgets\ContentList;
+use MsiThemeEssentialAddons\Widgets\CallToAction;
+use MsiThemeEssentialAddons\Widgets\Partners;
+use MsiThemeEssentialAddons\Widgets\Pulse;
+use MsiThemeEssentialAddons\Widgets\TeamMembers;
 // use MsiThemeEssentialAddons\Widgets\ImageSlider;
 // use MsiThemeEssentialAddons\Widgets\AboutUs;
 // use MsiThemeEssentialAddons\Widgets\Products;
 // use MsiThemeEssentialAddons\Widgets\TextBlock;
 // use MsiThemeEssentialAddons\Widgets\TeamBlock;
-// use MsiThemeEssentialAddons\Widgets\TeamMembers;
 // use MsiThemeEssentialAddons\Widgets\ProductTab;
 // use MsiThemeEssentialAddons\Widgets\EventFilter;
 // use MsiThemeEssentialAddons\Widgets\Galleries;
-// use MsiThemeEssentialAddons\Widgets\OwnFusion;
 // use MsiThemeEssentialAddons\Widgets\CareerPageBlocks;
 // use MsiThemeEssentialAddons\Widgets\DealerFilter;
 // use MsiThemeEssentialAddons\Widgets\Documents;
@@ -35,7 +40,6 @@ use MsiThemeEssentialAddons\Widgets\IconBox;
 // use MsiThemeEssentialAddons\Widgets\ProductSafety;
 // use MsiThemeEssentialAddons\Widgets\ProductServices;
 // use MsiThemeEssentialAddons\Widgets\ContentBlock;
-// use MsiThemeEssentialAddons\Widgets\ContentList;
 /**
  * Class Plugin
  *
@@ -117,16 +121,21 @@ class MsiThemeEssentialAddonsPlugin {
 		require_once( __DIR__ . '/widgets/border-heading.php' );
 		require_once( __DIR__ . '/widgets/video-gallery.php' );
 		require_once( __DIR__ . '/widgets/icon-box.php' );
+		require_once( __DIR__ . '/widgets/booking-demo.php' );
+		require_once( __DIR__ . '/widgets/contact-form.php' );
+		require_once( __DIR__ . '/widgets/content-list.php' );
+		require_once( __DIR__ . '/widgets/call-to-action.php' );
+		require_once( __DIR__ . '/widgets/partners.php' );
+		require_once( __DIR__ . '/widgets/pulse.php' );
+		require_once( __DIR__ . '/widgets/team-members.php' );
 		// require_once( __DIR__ . '/widgets/image-slider.php' );
 		// require_once( __DIR__ . '/widgets/about-us.php' );
 		// require_once( __DIR__ . '/widgets/products.php' );
 		// require_once( __DIR__ . '/widgets/text-block.php' );
 		// require_once( __DIR__ . '/widgets/team-block.php' );
-		// require_once( __DIR__ . '/widgets/team-members.php' );
 		// require_once( __DIR__ . '/widgets/product-tab.php' );
 		// require_once( __DIR__ . '/widgets/event-filter.php' );
 		// require_once( __DIR__ . '/widgets/galleries.php' );
-		// require_once( __DIR__ . '/widgets/own-fusion.php' );
 		// require_once( __DIR__ . '/widgets/career-page-block.php' );
 		// require_once( __DIR__ . '/widgets/dealer-filter.php' );
 		// require_once( __DIR__ . '/widgets/documents.php' );
@@ -140,7 +149,6 @@ class MsiThemeEssentialAddonsPlugin {
 		// require_once( __DIR__ . '/widgets/product-safety.php' );
 		// require_once( __DIR__ . '/widgets/product-tab-services.php' );
 		// require_once( __DIR__ . '/widgets/content-block.php' );
-		// require_once( __DIR__ . '/widgets/content-list.php' );
 	}
 
 	/**
@@ -168,16 +176,21 @@ class MsiThemeEssentialAddonsPlugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new BorderHeading() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new VideoGallery() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new IconBox() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new BookingDemo() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContactForm() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentList() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CallToAction() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Partners() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Pulse() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamMembers() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ImageSlider() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new AboutUs() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Products() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TextBlock() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamBlock() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TeamMembers() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductTab() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new EventFilter() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Galleries() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new OwnFusion() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CareerPageBlocks() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new DealerFilter() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Documents() );
@@ -191,7 +204,6 @@ class MsiThemeEssentialAddonsPlugin {
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductSafety() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ProductServices() );
 		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentBlock() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ContentList() );
 	}
 
 	/**
