@@ -2,7 +2,7 @@
 /**
  * Theme shortcodes
  */
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // featured post shortcode
 function msitheme_featured_post_shortcode( $atts ) {
     extract( shortcode_atts( array(
@@ -138,73 +138,6 @@ function msitheme_popular_post_shortcode( $atts ) {
 }
 add_shortcode( 'popular_post', 'msitheme_popular_post_shortcode' );
 
-
-// Event filter shortcode
-function msitheme_event_shortcode( $atts ){
-    extract( shortcode_atts( 
-        array(
-            'count' => -1,
-            'post_type' => 'event',
-            'order' => 'DESC',
-            'orderby' => 'comment_count',
-        ), $atts  )
-    );
-
-    ?>
-    <div class="msitheme-event-filter">
-        <div class="container-default">
-            <ul class="event-filter-cats list-unstyled flex align-center f-gap-20 cursor-pointer">
-                <!-- <li class="event-cat-list active clrWhite fz-12 fw-700 lh-18 uppercase" data-filter="all">All</li> -->
-                <?php 
-                $cat_info = get_terms( 'event_cat', array('hide_empty' => true) );
-                foreach ($cat_info as $cat) : ?>
-                     <li class="event-cat-list clrWhite fz-12 fw-700 lh-18 uppercase" data-filter="<?php echo esc_attr( $cat->slug ); ?>"><?php echo esc_attr( $cat->name ); ?></li>
-                <?php endforeach; ?>
-            </ul>
-            <div class="all-events flex align-center f-gap-25">
-                <?php 
-                $q = new WP_Query( 
-                    array(
-                        'post_type'	=> $post_type,
-                        'posts_per_page' => $count,
-                        'order' => $order,
-                        'orderby' => $orderby
-                    ) 
-                );
-
-                while($q->have_posts()) : $q->the_post();
-                    $post_id = get_the_ID();
-                    $event_category = get_the_terms( $post_id, 'event_cat' );
-                    if ( !empty( $event_category && ! is_wp_error( $event_category ) ) ) {
-                        $event_cat_list = array();
-                        foreach ($event_category as $category) {
-                            $event_cat_list[] = $category->slug;
-                        }
-                        $event_assigned_cat = join(" ", $event_cat_list);
-                    } else {
-                        $event_assigned_cat = '';
-                    }
-                    ?>
-                    <div class="eventBox relative flex align-center <?php echo esc_attr( $event_assigned_cat ) ?>">
-                        <div class="event-img absolute">
-                            <img src="<?php the_post_thumbnail_url( $post_id, 'large' ); ?>" alt="<?php echo esc_attr( the_title() ); ?>">
-                        </div>
-                        <div class="event-content">
-                            <div class="theme-border relative event-cat-name clrWhite fz-12 fw-700 lh-18 uppercase">
-                                <?php echo esc_html( $category->name ); ?>
-                            </div>
-                            <div class="event-title">
-                                <h6 class="clrWhite fz-24 lh-36 uppercase"><?php echo esc_html( the_title() ); ?></h6>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; wp_reset_query(); ?>
-            </div>
-        </div>
-    </div>
-    <?
-} 
-add_shortcode( 'event_filter', 'msitheme_event_shortcode'); 
 
 // Dealer filter shortcode
 function msitheme_dealer_shortcode( $atts ){
@@ -383,6 +316,6 @@ function msitheme_faqs_shortcode( $atts ){
                 <?php endwhile; wp_reset_query(); ?>
             </div>
     </div>
-    <?
+    <?php
 } 
 add_shortcode( 'faqs_filter', 'msitheme_faqs_shortcode'); 

@@ -1,5 +1,6 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // Control core classes for avoid errors
 if (class_exists('CSF')) {
 
@@ -331,16 +332,16 @@ if (class_exists('CSF')) {
                 'type'  => 'media',
                 'title' => esc_html__('Add 404 image', 'msitheme'),
             ),
-			array(
-                'id'    => 'left_border_img',
-                'type'  => 'media',
-                'title' => esc_html__('Add 404 left border image', 'msitheme'),
-            ),
-			array(
-                'id'    => 'right_border_img',
-                'type'  => 'media',
-                'title' => esc_html__('Add 404 right border image', 'msitheme'),
-            ),
+			// array(
+            //     'id'    => 'left_border_img',
+            //     'type'  => 'media',
+            //     'title' => esc_html__('Add 404 left border image', 'msitheme'),
+            // ),
+			// array(
+            //     'id'    => 'right_border_img',
+            //     'type'  => 'media',
+            //     'title' => esc_html__('Add 404 right border image', 'msitheme'),
+            // ),
 			array(
 				'id' => 'head_404',
 				'type' => 'textarea',
@@ -400,8 +401,8 @@ if (class_exists('CSF')) {
 
 	// Create a section
 	CSF::createSection($msitheme_metabox_prefix, array(
+		'title' => 'Customize header area',
 		'fields' => array(
-			
 			array(
 				'id'          => 'header_type',
 				'type'        => 'select',
@@ -434,6 +435,12 @@ if (class_exists('CSF')) {
 				),
 				'dependency' => array( 'header_type', '==', 'style2' ),
 			),
+			[
+				'id'                              => 'mobile_header_bg',
+				'type'                            => 'background',
+				'title'                           => 'Header Background (Mobile)',
+				'output'           => '.mobile_header_bg',
+			],
 			array(
 				'id'          => 'absolute_header_padding',
 				'type'        => 'spacing',
@@ -473,15 +480,15 @@ if (class_exists('CSF')) {
 				'dependency' => array( 'header_type', '==', 'style2' ),
 			),
 			array(
-				'id'                              => 'header_bg',
-				'type'                            => 'background',
-				'title'                           => 'Header Background',
-				'background_image'             => true,
-				'background_gradient'             => true,
-				'background_blend_mode'           => true,
-				'background_image_preview'           => true,
-				'output'           => '.fullwidth-header',
-				'default'                         => array(
+				'id'                            => 'header_bg',
+				'type'                          => 'background',
+				'title'                         => 'Header Background',
+				'background_image'              => true,
+				'background_gradient'           => true,
+				'background_blend_mode'         => true,
+				'background_image_preview'      => true,
+				'output'           		  		=> '.fullwidth-header',
+				'default'                       => array(
 					'background-color'              => '#282929',
 					'background-gradient-color'     => '#555',
 					'background-gradient-direction' => 'to bottom',
@@ -568,91 +575,7 @@ if (class_exists('CSF')) {
 		)
 	));
 
-	// Dealer post Metabox 
-	// Set a unique slug-like ID
-	$msitheme_dealer_metabox_prefix = 'msitheme_dealer_meta';
-	// Create a metabox
-	CSF::createMetabox($msitheme_dealer_metabox_prefix, array(
-		'title' => 'Dealer optons',
-		'post_type' => 'dealer',
-		'data_type' => 'serialize',
-	));
-
-	// Create a section
-	CSF::createSection($msitheme_dealer_metabox_prefix, array(
-		'title' => esc_html__('Dealer name and business', 'msitheme'),
-		'fields' => array(
-			array(
-				'id' => 'dealer_name',
-				'type' => 'text',
-				'title' => 'Dealer name',
-			),
-			array(
-				'id' => 'dealer_business',
-				'type' => 'text',
-				'title' => 'Dealer business',
-			),
-		)
-	));
-
-	// Create a section
-	CSF::createSection($msitheme_dealer_metabox_prefix, array(
-		'title' => esc_html__('Dealer contact informatons', 'msitheme'),
-		'fields' => array(
-			// phone 
-			array(
-				'id'      => 'phone_icon',
-				'type'    => 'icon',
-				'title'   => 'Select phone Icon',
-				'default' => 'fa fa-phone'
-			),
-			array(
-				'id'    => 'phone_num',
-				'type'  => 'text',
-				'title' => 'Phone number',
-				// 'dependency' => array( 'info_field_type', '==', 'text' ),
-			),
-			array(
-				'id'    => 'num_link',
-				'type'  => 'text',
-				'title' => 'Insert link (exam: tel:+34523542)',
-				// 'dependency' => array( 'info_field_type', '==', 'link' ),
-			),
-			// email 
-			array(
-				'id'      => 'mail_icon',
-				'type'    => 'icon',
-				'title'   => 'Select email Icon',
-				'default' => 'fa fa-heart'
-			),
-			array(
-				'id'    => 'mail_name',
-				'type'  => 'text',
-				'title' => 'Insert email address',
-				// 'dependency' => array( 'info_field_type', '==', 'text' ),
-			),
-			array(
-				'id'    => 'email_link',
-				'type'  => 'text',
-				'title' => 'Insert link (exam: mailto:email@domain.com)',
-				// 'dependency' => array( 'info_field_type', '==', 'link' ),
-			),
-			// address
-			array(
-				'id'      => 'address_icon',
-				'type'    => 'icon',
-				'title'   => 'Select address Icon',
-				'default' => 'fa fa-heart'
-			),
-			array(
-				'id'    => 'address_name',
-				'type'  => 'textarea',
-				'title' => 'Address',
-				// 'dependency' => array( 'info_field_type', '==', 'text' ),
-			),
-		)
-	));
-
+	
 
 	// Create a section
 	CSF::createSection($msitheme_post_metabox_prefix, array(
@@ -700,5 +623,166 @@ if (class_exists('CSF')) {
 			// ),
 		)
 	));
+
+
+
+	// Distributors post Metabox 
+	$msitheme_distributors = 'msitheme_distributors_meta';
+	// Create a metabox
+	CSF::createMetabox($msitheme_distributors, array(
+		'title' => 'Distributors optons',
+		'post_type' => 'distributor',
+		'data_type' => 'serialize',
+	));
+
+	// Create a section
+	CSF::createSection($msitheme_distributors, array(
+		'title' => esc_html__('Distributor information options', 'msitheme'),
+		'fields' => array(
+			array(
+				'id' => 'distributor_city',
+				'type' => 'text',
+				'title' => 'City',
+			),
+			array(
+				'id' => 'distributor_address',
+				'type' => 'textarea',
+				'title' => 'Address',
+			),
+			array(
+				'id'    => 'distributor_email',
+				'type'  => 'text',
+				'title' => 'Email',
+			),
+			array(
+				'id'    => 'distributor_website',
+				'type'  => 'text',
+				'title' => 'Website',
+			),
+		)
+	));
+
+	
+	// Distributors post Metabox 
+	$msitheme_products = 'msitheme_products_meta';
+	// Create a metabox
+	CSF::createMetabox($msitheme_products, array(
+		'title' => 'Product optons',
+		'post_type' => 'product',
+		'data_type' => 'serialize',
+	));
+
+	// Create a section
+	CSF::createSection($msitheme_products, array(
+		'title' => esc_html__('Product small image', 'msitheme'),
+		'fields' => array(
+			array(
+				'id' => 'product_extra_img',
+				'type' => 'media',
+				'title' => 'Upload image',
+			),
+		)
+	));
+
+	// Create a section
+	CSF::createSection($msitheme_products, array(
+		'title' => esc_html__('Product price', 'msitheme'),
+		'fields' => array(
+			array(
+				'id'    => 'product_price',
+				'type'  => 'switcher',
+				'title' => 'Product price',
+			),
+			array(
+				'id'    => 'pro_price',
+				'type'  => 'text',
+				'title' => 'Add product price (including price symbol)',
+				'dependency' => array( 'product_price', '==', 'true' ),
+			),
+		)
+	));
+	// Create a section
+	CSF::createSection($msitheme_products, array(
+		'title' => esc_html__('Product button', 'msitheme'),
+		'fields' => array(
+			array(
+				'id'    => 'link_text',
+				'type'  => 'text',
+				'title' => 'Button label',
+			),
+			array(
+				'id'          => 'link_type',
+				'type'        => 'select',
+				'title'       => 'Select link type',
+				'default'     => '',
+				'options'     => array(
+					''  => 'Default',
+					'2'  => 'External link',
+				),
+			),
+			array(
+				'id'    => 'link_extranal',
+				'type'  => 'text',
+				'title' => 'Insert external link',
+				'dependency' => array( 'link_type', '==', '2' ),
+			),
+		)
+	));
+
+	// Create a section
+	// CSF::createSection($msitheme_distributors, array(
+	// 	'title' => esc_html__('Dealer contact informatons', 'msitheme'),
+	// 	'fields' => array(
+	// 		// phone 
+	// 		array(
+	// 			'id'      => 'phone_icon',
+	// 			'type'    => 'icon',
+	// 			'title'   => 'Select phone Icon',
+	// 			'default' => 'fa fa-phone'
+	// 		),
+	// 		array(
+	// 			'id'    => 'phone_num',
+	// 			'type'  => 'text',
+	// 			'title' => 'Phone number',
+	// 			'dependency' => array( 'info_field_type', '==', 'text' ),
+	// 		),
+	// 		array(
+	// 			'id'    => 'num_link',
+	// 			'type'  => 'text',
+	// 			'title' => 'Insert link (exam: tel:+34523542)',
+	// 			'dependency' => array( 'info_field_type', '==', 'link' ),
+	// 		),
+	// 		// email 
+	// 		array(
+	// 			'id'      => 'mail_icon',
+	// 			'type'    => 'icon',
+	// 			'title'   => 'Select email Icon',
+	// 			'default' => 'fa fa-heart'
+	// 		),
+	// 		array(
+	// 			'id'    => 'mail_name',
+	// 			'type'  => 'text',
+	// 			'title' => 'Insert email address',
+	// 		),
+	// 		array(
+	// 			'id'    => 'email_link',
+	// 			'type'  => 'text',
+	// 			'title' => 'Insert link (exam: mailto:email@domain.com)',
+	// 		),
+	// 		// address
+	// 		array(
+	// 			'id'      => 'address_icon',
+	// 			'type'    => 'icon',
+	// 			'title'   => 'Select address Icon',
+	// 			'default' => 'fa fa-heart'
+	// 		),
+	// 		array(
+	// 			'id'    => 'address_name',
+	// 			'type'  => 'textarea',
+	// 			'title' => 'Address',
+	// 		),
+	// 	)
+	// ));
+
 
 } 

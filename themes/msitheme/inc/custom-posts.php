@@ -1,9 +1,9 @@
 <?php 
-
 /*
 * Creating a function to create our CPT
 */
-  
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 function msitheme_product_custom_post_type() {
     $labels = array(
         'name'                => _x( 'Products', 'Post Type General Name', 'msitheme' ),
@@ -25,8 +25,8 @@ function msitheme_product_custom_post_type() {
         'label'               => __( 'products', 'msitheme' ),
         'description'         => __( 'Product news and reviews', 'msitheme' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions',       
-                                        'custom-fields', 'trackbacks', 'page-attributes', 'post-formats' ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions',       
+                                        'trackbacks', 'page-attributes', 'post-formats' ),
         'taxonomies'          => array( 'product_cats' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -47,19 +47,20 @@ function msitheme_product_custom_post_type() {
     register_post_type( 'product', $args );
 
 
-     // Event
-    //  register_post_type( 'event', [
-    //     'labels'    => [
-    //         'name'  => 'Events',
-    //         'singular_name' => 'Event',
-    //         'add_new_item'  => 'Add New Event'
-    //     ],
-    //     'public'    => true,
-    //     'supports'  => ['title', 'editor', 'thumbnail', 'page-attributes', 'comments'],
-    //     'menu_position' => 6,
-    //     'menu_icon'           => 'dashicons-networking',
-    //     'can_export'          => true,
-    // ] );
+    //  Distributors
+     register_post_type( 'distributor', [
+        'labels'    => [
+            'name'  => 'Distributors',
+            'singular_name' => 'Distributor',
+            'add_new_item'  => 'Add New Distributor'
+        ],
+        'public'    => false,
+        'show_ui'    => true,
+        'supports'  => ['title', 'editor', 'thumbnail', 'page-attributes'],
+        'menu_position' => 6,
+        'menu_icon'           => 'dashicons-networking',
+        'can_export'          => true,
+    ] );
 
      // Gallery
     //  register_post_type( 'gallery', [
@@ -122,16 +123,16 @@ function msitheme_product_custom_post_type() {
     ] );
 
     // Create product custom post taxonomy
-    // register_taxonomy( 'event_cat', 'event', [
-    //     'hierarchical'  => true,
-    //     'label' => 'Event Category',
-    //     'query_var' => true,
-    //     'show_admin_column' => true,
-    //     'rewrite'   => [
-    //         'slug'  => 'event-category',
-    //         'with_front'    => true
-    //     ]
-    // ] );
+    register_taxonomy( 'distributor_cat', 'distributor', [
+        'hierarchical'  => true,
+        'label' => 'Distributor Country',
+        'query_var' => true,
+        'show_admin_column' => true,
+        'rewrite'   => [
+            'slug'  => 'distributor-country',
+            'with_front'    => true
+        ]
+    ] );
 
     // Create product custom post taxonomy
     // register_taxonomy( 'gallery_cat', 'gallery', [

@@ -62,21 +62,21 @@ if (array_key_exists('btns_404', $msitheme)) {
 				<?php endif; ?>
 
 				<div class="page-content text-center">
-					<?php if ( !empty( $head_404 ) ) : ?>
-						<h1 class="page-title fz-64 lh-76 clrWhite uppercase"><?php echo wp_kses_post( $head_404 ); ?></h1>
+					<?php if ( !empty( $head_404 ) ) : /* ?>
+						<h1 class="page-title fz-64 lh-76 clrBlack uppercase"><?php echo wp_kses_post( $head_404 ); ?></h1>
 					<?php else : ?>
-						<h1 class="page-title fz-64 lh-76 clrWhite uppercase">
+						<h1 class="page-title fz-64 lh-76 clrBlack uppercase">
 							<span><?php esc_html_e( 'oh... the page', 'msitheme' ); ?></span><br>
 							<span><?php esc_html_e( 'is fly away...', 'msitheme' ); ?></span>
 						</h1>
-					<?php endif; if ( !empty( $paragraph_404 ) ) : ?>
-						<p class="fw-700 clrWhite paragraph-404"><?php echo wp_kses_post( $paragraph_404 ); ?></p>
+					<?php  */ endif; if ( !empty( $paragraph_404 ) ) : /*?>
+						<p class="fw-700 clrBlack paragraph-404"><?php echo wp_kses_post( $paragraph_404 ); ?></p>
 					<?php else : ?>
-						<p class="fw-700 clrWhite paragraph-404"><?php esc_html_e( 'But you can find an other destination', 'msitheme' ); ?></p>
-					<?php endif; if ( !empty( $btns_404 ) ) : ?>
+						<p class="fw-700 clrBlack paragraph-404"><?php esc_html_e( 'But you can find an other destination', 'msitheme' ); ?></p>
+					<?php */ endif; if ( !empty( $btns_404 ) ) : ?>
 						<div class="readmore-btns flex align-center justify-center f-gap-25">
 							<?php foreach ( $btns_404 as $btn ) : ?>
-								<a href="<?php echo esc_url($btn['link_404']); ?>" class="readmore-btn fz-12 fw-700 clrWhite uppercase">
+								<a href="<?php echo esc_url($btn['link_404']); ?>" class="readmore-btn fz-12 fw-700 clrBlack uppercase">
 									<?php echo esc_html( $btn['btn_404'] ); ?>
 								</a>
 							<?php endforeach; ?>

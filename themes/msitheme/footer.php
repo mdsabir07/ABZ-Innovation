@@ -24,14 +24,17 @@
 					<div class="footer-logo">
 						<?php dynamic_sidebar( 'footer-top-1' ) ?>
 					</div>
-				<!-- <?php //endif; if ( is_active_sidebar( 'footer-top-2' ) ) : ?>
-				<div class="newsletter">
-					<?php //dynamic_sidebar( 'footer-top-2' ) ?>
-				</div> -->
-				<?php endif; ?>
+					<?php endif; 
+					if ( wp_is_mobile() ) :
+					if ( is_active_sidebar( 'footer-mid-4' ) ) : 
+					?>
+						<div class="foo-mid-4">
+							<?php dynamic_sidebar( 'footer-mid-4' ) ?>
+						</div>
+					<?php endif; endif; ?>
 			</div>
 			<div class="footer-middle grid grid-4 g-gap-20">
-				<div class="foo-mid-1">
+				<div class="foo-mid-1 relative">
 					<?php if ( !empty( $msitheme['logo_heading'] ) ) : ?> 
 						<h6 class="widget-title fw-700 clrOrange uppercase">
 							<?php echo esc_html( $msitheme['logo_heading'] ); ?>
@@ -46,71 +49,80 @@
 							<p class="fz-16 clrBlack lh-24"><?php echo wp_kses_post( $msitheme['address_txt'] ); ?></p>
 						<?php endif; ?>
 					</div>
-					<?php if ( !empty( $msitheme['social_head'] ) ) : ?>
-						<strong class="fz-16 fw-700 lh-24">
-							<?php echo esc_html( $msitheme['social_head'] ); ?> 
-						</strong>
-					<?php endif; ?>
 					<?php if ( $social_style === 'style2' ) : ?>
-						<div class="footer-socials flex align-center">
-							<?php if ( !empty( $msitheme['facebook'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['facebook'] ); ?>" class="facebook">
-									<i class="fa-brands fa-facebook-f"></i>
-								</a>
-							<?php endif; if ( !empty( $msitheme['linkedin'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['linkedin'] ); ?>" class="linkedin">
-									<i class="fa-brands fa-linkedin-in"></i>
-								</a>
-							<?php endif; if ( !empty( $msitheme['instagram'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['instagram'] ); ?>" class="instagram">
-									<i class="fa-brands fa-instagram"></i>
-								</a>
-							<?php endif; if ( !empty( $msitheme['twitter'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['twitter'] ); ?>" class="twitter">
-									<i class="fa-brands fa-x-twitter"></i>
-								</a>
-							<?php endif; if ( !empty( $msitheme['tiktok'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['tiktok'] ); ?>" class="tiktok">
-									<i class="fa-brands fa-tiktok"></i>
-								</a>
-							<?php endif; if ( !empty( $msitheme['youtube'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['youtube'] ); ?>" class="youtube">
-									<i class="fa-brands fa-youtube"></i>
-								</a>
+						<div class="footer-social-media absolute left-0">
+							<?php if ( !empty( $msitheme['social_head'] ) ) : ?>
+								<strong class="fz-16 fw-700 lh-24">
+									<?php echo esc_html( $msitheme['social_head'] ); ?> 
+								</strong>
 							<?php endif; ?>
+							<div class="footer-socials flex align-center">
+								<?php if ( !empty( $msitheme['facebook'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['facebook'] ); ?>" class="facebook">
+										<i class="fa-brands fa-facebook-f"></i>
+									</a>
+								<?php endif; if ( !empty( $msitheme['linkedin'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['linkedin'] ); ?>" class="linkedin">
+										<i class="fa-brands fa-linkedin-in"></i>
+									</a>
+								<?php endif; if ( !empty( $msitheme['instagram'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['instagram'] ); ?>" class="instagram">
+										<i class="fa-brands fa-instagram"></i>
+									</a>
+								<?php endif; if ( !empty( $msitheme['twitter'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['twitter'] ); ?>" class="twitter">
+										<i class="fa-brands fa-x-twitter"></i>
+									</a>
+								<?php endif; if ( !empty( $msitheme['tiktok'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['tiktok'] ); ?>" class="tiktok">
+										<i class="fa-brands fa-tiktok"></i>
+									</a>
+								<?php endif; if ( !empty( $msitheme['youtube'] ) ) : ?>
+									<a href="<?php echo esc_url( $msitheme['youtube'] ); ?>" class="youtube">
+										<i class="fa-brands fa-youtube"></i>
+									</a>
+								<?php endif; ?>
+							</div>
 						</div>
 					<?php endif; ?>
 					<?php if ( $social_style === 'style1' ) : ?>
-						<div class="social-links">
-							<?php if ( !empty( $msitheme['facebook_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['facebook_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['facebook_label'] ); ?>
-								</a>
-							<?php endif; if ( !empty( $msitheme['linkedin_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['linkedin_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['linkedin_label'] ); ?>
-								</a>
-							<?php endif; if ( !empty( $msitheme['instagram_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['instagram_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['instagram_label'] ); ?>
-								</a>
-							<?php endif; if ( !empty( $msitheme['twitter_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['twitter_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['twitter_label'] ); ?>
-								</a>
-							<?php endif; if ( !empty( $msitheme['tiktok_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['tiktok_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['tiktok_label'] ); ?>
-								</a>
-							<?php endif; if ( !empty( $msitheme['youtube_link'] ) ) : ?>
-								<a href="<?php echo esc_url($msitheme['youtube_link']); ?>" class="social-icon">
-									<?php echo esc_html( $msitheme['youtube_label'] ); ?>
-								</a>
+						<div class="footer-social-media absolute left-0">
+							<?php if ( !empty( $msitheme['social_head'] ) ) : ?>
+								<strong class="fz-16 fw-700 lh-24">
+									<?php echo esc_html( $msitheme['social_head'] ); ?> 
+								</strong>
 							<?php endif; ?>
+							<div class="social-links">
+								<?php if ( !empty( $msitheme['facebook_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['facebook_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['facebook_label'] ); ?>
+									</a>
+								<?php endif; if ( !empty( $msitheme['linkedin_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['linkedin_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['linkedin_label'] ); ?>
+									</a>
+								<?php endif; if ( !empty( $msitheme['instagram_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['instagram_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['instagram_label'] ); ?>
+									</a>
+								<?php endif; if ( !empty( $msitheme['twitter_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['twitter_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['twitter_label'] ); ?>
+									</a>
+								<?php endif; if ( !empty( $msitheme['tiktok_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['tiktok_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['tiktok_label'] ); ?>
+									</a>
+								<?php endif; if ( !empty( $msitheme['youtube_link'] ) ) : ?>
+									<a href="<?php echo esc_url($msitheme['youtube_link']); ?>" class="social-icon">
+										<?php echo esc_html( $msitheme['youtube_label'] ); ?>
+									</a>
+								<?php endif; ?>
+							</div>
 						</div>
 					<?php endif; ?>
 				</div>
-				<?php if ( !empty($msitheme['foo_emails']) ) : ?>
+				<?php if( ! wp_is_mobile() ) : if ( !empty($msitheme['foo_emails']) ) : ?>
 					<div class="foo-mid-2">
 						<?php if ( !empty( $msitheme['email_widget_heading'] ) ) : ?> 
 							<h6 class="widget-title fw-700 clrOrange uppercase">
@@ -135,18 +147,22 @@
 					<div class="foo-mid-4">
 						<?php dynamic_sidebar( 'footer-mid-4' ) ?>
 					</div>
-				<?php endif; ?>
+				<?php endif; endif; ?>
 			</div>
 			<div class="footer-bottom flex justify-between align-center">
-				<?php if ( is_active_sidebar( 'footer-bottom-1' ) ) : ?>
-					<div class="copyright">
-						<?php dynamic_sidebar( 'footer-bottom-1' ) ?>
-					</div>
-				<?php endif; if ( is_active_sidebar( 'footer-bottom-2' ) ) : ?>
+				<?php if ( wp_is_mobile() ) : if ( is_active_sidebar( 'footer-bottom-2' ) ) : ?>
 					<div class="languages-footer footer-lang">
 						<?php dynamic_sidebar( 'footer-bottom-2' ) ?>
 					</div>
-				<?php endif; ?>
+				<?php endif; endif; if ( is_active_sidebar( 'footer-bottom-1' ) ) : ?>
+					<div class="copyright">
+						<?php dynamic_sidebar( 'footer-bottom-1' ) ?>
+					</div>
+				<?php endif; if ( ! wp_is_mobile() ) :  if ( is_active_sidebar( 'footer-bottom-2' ) ) : ?>
+					<div class="languages-footer footer-lang">
+						<?php dynamic_sidebar( 'footer-bottom-2' ) ?>
+					</div>
+				<?php endif; endif; ?>
 			</div>
 		</div>
 	</footer><!-- #colophon -->

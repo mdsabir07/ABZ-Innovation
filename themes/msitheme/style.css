@@ -1,6 +1,6 @@
 /*!
 Theme Name: MSITheme
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/mdsabir07/ABZ-Innovation
 Author: Sabirul Islam
 Author URI: https://sabir.coderdevsbd.com
 Description: MSITheme created for Magnus Aircrafts website. It\'s a user-friendly and fully responsive WordPress theme.
@@ -21,3 +21,317 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
+@media (min-width: 768px) {
+	.hero-content {
+		bottom: calc((100vw  * 0.56) * 0.35 + 1px);
+	}
+}
+
+.partners-logos {
+	margin-top: 48px;
+}
+
+.partners-logos img {
+    max-height: 128px;
+    object-fit: contain;
+}
+
+.pulse.pulse-bg::before,
+.pulse.pulse-bg::after {
+    animation: none;
+    transform: scale(1);
+}
+
+.page-id-23 h3.border-heading.fontVariation {
+    font-size: 25px !important;
+    line-height: 1.5 !important;
+	max-width: 272px;
+}
+
+.forum-wrap .forum-top-text, 
+.forum-wrap .forum-bottom-text {
+    display: none;
+}
+
+#distributorToggle, .distributor-selection-field .fa-arrow-down {
+	cursor: pointer;
+}
+
+.wpcf7-list-item-label a  {
+    color: #f25118;
+    text-decoration: underline;
+}
+
+.wpcf7-list-item-label a:hover {
+    color: #fff;
+}
+
+.msitheme-product-wrap .products-grid .single-product .entry-media img {
+    border-radius: 24px !important;
+}
+
+.product-template-default.single.single-product .entry-content h2 {
+    text-transform: var(--uppercase);
+    line-height: var(--lh57);
+    font-variation-settings: var(--fontVariation);
+    font-size: var(--fz48);
+}
+
+@media(max-width: 767px) {
+	.product-template-default.single.single-product .entry-content h2,
+	.crp-list-title,
+	.product-template-default.single.single-product h2.section-heading {
+		font-size: 30px !important;
+		line-height: 1.5 !important;
+	}
+	
+	.crp-list-item {
+		width: 100% !important;
+	}
+	
+	.crp-list-item-image,
+	.crp-list-item .crp-list-item-image img{
+		max-width: none !important;
+	}
+}
+
+.product-template-default.single.single-product .entry-content p,
+.product-template-default.single.single-product .entry-content ul li {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links a {
+    color: #eb5118;
+    text-decoration: underline;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.product-template-default.single.single-product .section-title-wrap {
+    text-align: center;
+}
+
+.product-template-default.single.single-product h4.section-top-heading {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    color: #282929;
+    margin: 0;
+}
+
+.product-template-default.single.single-product h2.section-heading {
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 57.6px;
+    color: #F25119;
+    font-variation-settings: "width" 125;
+    margin: 0px 0px 0px 0px;
+}
+
+.product-template-default.single.single-product .msitheme-acordion .msitheme-acor-inner label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #282929;
+    margin: 10px 0px 10px 0px;
+}
+
+.product-template-default.single.single-product .accro-desc {
+    font-size: 14px;
+    font-weight: 700;
+    color: #F25119 !important;
+}
+
+.product-template-default.single.single-product .accro-desc:hover {
+    color: #282929 !important;
+}
+
+.product-template-default.single.single-product .accro-desc a {
+    color: inherit !important;
+}
+
+#product-downloads {
+	padding-block-start: 100px;
+    padding-block-end: 100px;
+}
+
+@media(max-width: 767px) {
+	#product-downloads {
+		padding-block-start: 50px;
+		padding-block-end: 50px;
+	}
+}
+
+body:is(.page-id-29,.page-id-27,.page-id-25) .wpcf7 input::placeholder,
+body:is(.page-id-29,.page-id-27,.page-id-25) .wpcf7 textarea::placeholder{
+  color: #fff !important;
+  opacity: 1; /* Firefox */
+}
+
+body:is(.page-id-29,.page-id-27,.page-id-25) .wpcf7 input::-ms-input-placeholder,
+body:is(.page-id-29,.page-id-27,.page-id-25) .wpcf7 textarea::-ms-input-placeholder{ /* Edge 12 -18 */
+  color: #fff !important;
+}
+
+.team-member-wrap {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15%, 85% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 12%, 85% 0);
+    padding: 1px;
+    border-radius: 12px;
+}
+
+.team-member-wrap:hover {
+    background: #eb5118;
+    
+}
+
+.team-member-wrap:hover .team-member-box {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.5%, 85% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 12.35%, 84.5% 0);
+    border: 1px solid #eb5118; 
+}
+
+.team-member-img {
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.5%, 85% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.7%, 84.8% 0);
+  background: #eb5118;
+    padding: 1px;
+}
+
+.team-description {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.5%, 85% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15%, 85% 0);
+}
+
+.team-member-img .team-img-corner {
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.5%, 85% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 15.5%, 85% 0);
+    object-fit: cover;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.team-member-img .team-img-corner img {
+    object-fit: cover;
+    height: 100%;
+	image-rendering: auto;
+    overflow-clip-margin: unset;
+}
+
+.team-member-img::before, 
+.team-member-box::before {
+    display: none;    
+} 
+
+.team-member-img::after,
+.team-member-box::after {
+    display: none;
+}
+
+.msitheme-product-wrap .product-slide {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: stretch;
+    align-items: stretch;
+    padding-right: 20vw;
+}
+
+.msitheme-product-wrap .product-slide .product {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1 0;
+}
+
+.msitheme-product-wrap .product-slide .product-price {
+    white-space: nowrap;
+}
+
+.msitheme-product-wrap .product-slide .product-title {
+    align-items: flex-start;
+}
+
+.msitheme-product-wrap .product-slide .entry-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.msitheme-product-wrap .product-slide .product-btn {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+}
+
+body:is(.page-id-2785,.page-id-2788,.page-id-2791) .msitheme-content-elementor {
+    padding: 5em;
+    text-align: center;
+}
+
+body:is(.page-id-2785,.page-id-2788,.page-id-2791) .msitheme-content-elementor h1 {
+    padding-bottom: .5em;
+}
+
+@media(max-width: 767px) {
+    .cf-mobile-scroll-fix {
+        display: block !important;
+    }
+    .cf-mobile-scroll-fix .e-con-inner{
+        overflow-x: scroll !important;
+        padding-bottom: 15px !important;
+        display: var(--dFlex) !important;
+        overflow-x: var(--scroll);
+    }
+    
+    .cf-mobile-scroll-fix .e-con-inner > div {
+        min-width: 294px !important;
+    }
+    
+    .cf-mobile-scroll-fix .e-con-inner::-webkit-scrollbar-track, 
+    .cf-mobile-scroll-fix .e-con-inner::-webkit-scrollbar-thumb {
+        background: var(--clrOrange);
+        border-radius: 10px;
+        cursor: var(--pointer);
+    }
+    
+    .cf-mobile-scroll-fix .e-con-inner::-webkit-scrollbar-track {
+        background: #7D3A22;
+        margin-right: 5vw;
+        margin-left: 5vw;
+    }
+    
+    .cf-mobile-scroll-fix .e-con-inner::-webkit-scrollbar {
+        height: 5px;
+    }
+	
+	.main-navigation.mobile-menu {
+		height: auto !important;
+	}
+	
+	.absolute-header .header-wrap {
+		height: 54px;
+	}
+}
+
+
+.z-index-0 {
+    position: relative !important;
+    z-index: 0 !important;
+}
+
+.z-index-1 {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.pulse.pulse-bg::before, .pulse.pulse-bg::after {
+    display: none !important;
+}

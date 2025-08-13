@@ -49,11 +49,24 @@ if ( $header_type === 'style2' ) {
 }
 
 
+if (array_key_exists('mobile_header_bg', $page_meta)) {
+	$mobile_header_bg = $page_meta['mobile_header_bg'];
+} else {
+	$mobile_header_bg = '';
+}
+
+if ( wp_is_mobile() ) {
+	$mobile_bg_class = ' mobile_header_bg';
+} else {
+	$mobile_bg_class = '';
+}
+
+
 ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'msitheme' ); ?></a>
 
-	<header id="masthead" class="site-header<?php echo esc_attr( $header_class ); ?>">
+	<header id="masthead" class="site-header<?php echo esc_attr( $header_class ); ?><?php echo esc_attr( $mobile_bg_class ); ?>">
 		<div class="container-default">
 			<div class="header-wrap flex justify-between align-center flexShrink">
 				<div class="site-branding">
@@ -70,22 +83,13 @@ if ( $header_type === 'style2' ) {
 				</div><!-- .site-branding -->
 				<div class="responsive-menu cursor-pointer">
 					<div class="menu-bars">
-						<?php esc_html_e( 'Menu', 'msitheme' ); ?> <i class="fa-solid fa-bars"></i>
+						<i class="fa-solid fa-bars"></i>
 					</div>
 				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<div class="responsive-menu-close cursor-pointer">
-						<?php esc_html_e( 'Close', 'msitheme' ); ?> <i class="fa-solid fa-xmark"></i>
+						<i class="fa-solid fa-xmark"></i>
 					</div>
-					<?php if ( wp_is_mobile() ) : ?>
-						<div class="header-btn">
-							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
-								<a href="<?php echo esc_url( $msitheme['header_button_link'] ); ?>" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
-									<?php echo esc_html( $msitheme['header_button'] ); ?>
-								</a>
-							<?php endif; ?>
-						</div>
-					<?php endif; ?>
 					<?php
 					wp_nav_menu(
 						array(
@@ -94,9 +98,19 @@ if ( $header_type === 'style2' ) {
 						)
 					);
 					?>
+					
+					<?php if ( wp_is_mobile() ) : ?>
+						<div class="header-btn mobile-header-btn">
+							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
+								<a href="<?php echo esc_url( $msitheme['header_button_link'] ); ?>" class="button theme-btn bordered-btn uppercase flex align-center justify-center fz-12 fw-700 clrDarkBlue">
+									<?php echo esc_html( $msitheme['header_button'] ); ?>
+								</a>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 				</nav><!-- #site-navigation -->
-				<div class="header-right-content">
-					<?php if ( ! wp_is_mobile() ) : ?>
+				<?php if ( ! wp_is_mobile() ) : ?>
+					<div class="header-right-content">
 						<div class="header-btn">
 							<?php if ( !empty( $msitheme['header_button'] ) ) : ?>
 								<a href="<?php echo esc_url( $msitheme['header_button_link'] ); ?>" class="button theme-btn flex align-center justify-center fz-12 fw-700 clrOrange-bg">
@@ -104,8 +118,8 @@ if ( $header_type === 'style2' ) {
 								</a>
 							<?php endif; ?>
 						</div>
-					<?php endif; ?>
-				</div>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</header><!-- #masthead -->

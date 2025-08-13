@@ -1,0 +1,18 @@
+/* 404 CSS */
+body.error404 main {
+    padding: 70px var(--zero);
+}
+.error404 nav ul li a {
+    color: var(--clrBlack) !important;
+}
+.paragraph-404 {
+    margin: 20px var(--zero);
+}
+.readmore-btn {
+    display: var(--dInlineBlock);
+    padding: 5px var(--zero);
+    border-bottom: 1px var(--solid) var(--clrBlack);
+}
+.img-404 {
+    margin-bottom: 30px;
+}
